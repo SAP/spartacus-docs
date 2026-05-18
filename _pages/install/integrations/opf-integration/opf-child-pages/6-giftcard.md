@@ -2,27 +2,27 @@
 title: Gift Card
 ---
 
-The OPF Gift Card feature enables customers to use one or more gift cards as a payment method during checkout. Within the Open Payment Framework (OPF), gift cards are categorized as a “stored value payment” type.
+The Open Payment Framework (OPF) Gift Card feature enables customers to use one or more gift cards as a payment method during checkout. Within OPF, gift cards are categorized as a “stored value payment” type.
 
 Customers can apply a gift card by entering the card number and PIN, allowing the gift card balance to be used toward the cart total. If the available balance fully covers the order amount, the order can be completed without adding any other payment method.
 
-**Note:** Currently, gift card support is available only for B2C stores using OPF.
+**Note:** Gift card payments are currently supported only for B2C stores when OPF is used as the payment provider. In this case, the functionality is available out of the box.
 
 The feature supports the following checkout flows:
 
 1. **Checkout with Gift Card Only**  
-   Customers can apply one or more gift cards to reduce the cart total. If the total amount is fully covered by the gift card balance, the order can be completed without selecting any additional payment provider.
+   Customers can apply one or more gift cards to reduce the cart total. If the total amount is fully covered by the gift card balance, the order can be completed without selecting any additional payment method.
 
-2. **Checkout with Gift Card and Other Payment Options**  
-   If the applied gift card balance does not fully cover the cart total, customers can choose an additional payment method to pay the remaining amount.
+2. **Checkout with Gift Card and Other Payment Methods**  
+   If the applied gift card balance does not fully cover the cart total, an additional payment method is required to complete the purchase.
 
 ## Enabling Gift Card in Spartacus
 
 Gift Card functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](link-to-section-in-1-open-payment-framework-in-spartacus.md).
 
-**Important:** Gift Card is **not enabled by default** during Spartacus installation. During the schematics installation process, you must explicitly select or verify that the Gift Card feature is enabled in your storefront configuration.
+**Important:** Gift Card is **not enabled by default**. During the schematics installation process, you must explicitly select or verify that the feature is enabled in your storefront configuration.
 
-After installation, Gift Card is available through OPF modules and configuration.
+After installation, the gift card feature is available through OPF modules and configuration.
 
 ### Gift Card Configuration
 
@@ -61,25 +61,25 @@ provideConfig(<I18nConfig>{
 
 ## CMS Components
 
-Gift card feature overrides three existing CMS components via `defaultOpfGiftCardComponentsConfig` (no ImpEx needed):
+The gift card feature overrides three existing CMS components via `defaultOpfGiftCardComponentsConfig` (no ImpEx needed):
 
 | CMS Component | Spartacus Component | Purpose |
 | --- | --- | --- |
-| `CheckoutOrderSummary` | `OpfGiftCardCheckoutOrderSummaryComponent` | Shows applied gift cards in checkout |
-| `OrderConfirmationTotalsComponent` | `OpfGiftCardOrderConfirmationTotalsComponent` | Shows gift card totals in confirmation |
-| `AccountOrderDetailsTotalsComponent` | `OpfGiftCardOrderDetailTotalsComponent` | Shows gift card totals in order details |
+| `CheckoutOrderSummary` | `OpfGiftCardCheckoutOrderSummaryComponent` | Displays applied gift cards in checkout |
+| `OrderConfirmationTotalsComponent` | `OpfGiftCardOrderConfirmationTotalsComponent` | Displays gift card totals in confirmation |
+| `AccountOrderDetailsTotalsComponent` | `OpfGiftCardOrderDetailTotalsComponent` | Displays gift card totals in order details |
 
 ### Gift Card Apply Component
 
-The `OpfGiftCardApplyComponent` (`cx-opf-gift-card-apply` selector) is rendered as an outlet in the OPF payment and review step. Use the selector directly if you need custom placement.
+The `OpfGiftCardApplyComponent` (`cx-opf-gift-card-apply` selector) is rendered as an outlet in the OPF payment and review step. Use the selector directly if custom placement is required.
 
 ## Checkout Flow
 
-Gift card checkout supports two flows based on the remaining cart amount:
+Gift card checkout behavior depends on the remaining cart amount:
 
 - **Partial Coverage**: If the gift card balance does not fully cover the cart total, the customer must select an additional payment method for the remaining amount.
 
-- **Full Coverage** (`giftCardsCoverFullAmount === true`): If the gift cards fully cover the cart total, the checkout skips the external payment provider step and allows the customer to place the order directly.
+- **Full Coverage** (`giftCardsCoverFullAmount === true`): If the cart is fully covered, the external payment provider step is skipped and the order can be placed directly.
 
 ### Order Placement
 
@@ -99,17 +99,17 @@ The gift card feature communicates coverage state to the OPF checkout via `OpfPa
 
 | Method | Description |
 | --- | --- |
-| `emitIsGiftCardCoveredTotalAmountEvent(isCovered: boolean)` | Notifies the OPF checkout whether gift cards fully cover the cart total. When `true`, the checkout hides the other payment options. |
+| `emitIsGiftCardCoveredTotalAmountEvent(isCovered: boolean)` | Notifies the OPF checkout whether gift cards fully cover the cart total. When `true`, other payment options are hidden. |
 | `isGiftCardCoveredTotalAmountEvent$` | Observable the OPF checkout subscribes to for toggling the payment UI. |
 
 The gift card feature emits this event reactively whenever `opfGiftCardSummary.giftCardsCoverFullAmount` changes on the cart.
 
 ## Runtime Behavior
 
-1. **Gift Card Operations**: Apply/remove calls reload the active cart on success
-2. **Add Gift Card Button**: Shown conditionally based on `applyGiftCard` availability in `cart.availableOperations`
+1. **Gift Card Operations**: Apply/remove actions trigger cart reload on success
+2. **Add Gift Card Button**: Displayed based on `applyGiftCard` availability in `cart.availableOperations`
 3. **Form Auto-Close**: The gift card entry form closes when `selectedPaymentOptionId >= -1` (any payment option, including saved payment details with ID `-1`)  
-4. **Full Coverage Flow**: When `giftCardsCoverFullAmount` is `true`, payment step is skipped and Place Order button is shown
+4. **Full Coverage Flow**: When `giftCardsCoverFullAmount` is `true`, the payment step is skipped and the Place Order button is displayed
 5. **Payment Failure Recovery**: HTTP interceptor reloads the cart when `placePaymentAuthorizedOrder` fails (backend removes gift cards on error)
 
 ## OCC Endpoints
@@ -141,7 +141,7 @@ The `orderDetail` and `placePaymentAuthorizedOrder` endpoints include:
 
 `OpfGiftCardRootModule` registers normalizers that map backend fields to Spartacus models:
 
-| Normalizer | Maps |
+| Normalizer | Mapping |
 | --- | --- |
 | `OpfGiftCardCartOccNormalizer` | `sapGiftCards` → `opfGiftCards`<br/>`sapGiftCardSummary` → `opfGiftCardSummary`<br/>`_availableOperations` → `availableOperations` |
 | `OpfGiftCardOrderOccNormalizer` | `sapGiftCardSummary` → `opfGiftCardSummary` |
@@ -221,9 +221,9 @@ The `OpfGiftCardApplyComponent` provides a form with the following fields:
 
 Enter the card number and PIN, then click **Apply**. If the gift card is valid, it is applied to the cart, a success message is displayed, and the cart total is updated to reflect the applied gift card balance.
 
-### Removing Gift Cards
+### Remove Gift Cards
 
-The `OpfGiftCardAppliedComponent` lists applied cards with remove buttons. Clicking remove calls `OpfGiftCardFacade.removeGiftCard(giftCardId)` and reloads the cart.
+The `OpfGiftCardAppliedComponent` lists applied cards with remove buttons. Removing a card calls `OpfGiftCardFacade.removeGiftCard(giftCardId)` and reloads the cart.
 
 ## Component Reference
 
@@ -231,9 +231,9 @@ The `OpfGiftCardAppliedComponent` lists applied cards with remove buttons. Click
 | --- | --- | --- |
 | `OpfGiftCardApplyComponent` | `cx-opf-gift-card-apply` | Main entry point. Renders the gift card form toggle, the apply form, the list of applied gift cards, and the Place Order button when the cart is fully covered |
 | `OpfGiftCardAppliedComponent` | `cx-opf-gift-card-applied` | Displays a list of applied gift cards with masked numbers, applied amounts, remaining balances, and a Remove button |
-| `OpfGiftCardCheckoutPlaceOrderComponent` | `cx-opf-gift-card-checkout-place-order` | Place Order button rendered only when gift cards fully cover the cart total |
-| `OpfGiftCardCheckoutOrderSummaryComponent` | *(nested)* | Renders the order summary with gift card adjustment inside the checkout |
-| `OpfGiftCardOrderSummaryComponent` | `cx-opf-gift-card-order-summary` | Shared component used in checkout, order confirmation, and order details to display the gift card total breakdown |
+| `OpfGiftCardCheckoutPlaceOrderComponent` | `cx-opf-gift-card-checkout-place-order` | Renders the Place Order button only when gift cards fully cover the cart total |
+| `OpfGiftCardCheckoutOrderSummaryComponent` | *(nested)* | Displays the order summary with gift card adjustments in checkout |
+| `OpfGiftCardOrderSummaryComponent` | `cx-opf-gift-card-order-summary` | Used across checkout, order confirmation, and order details to display the gift card total breakdown |
 | `OpfGiftCardOrderConfirmationTotalsComponent` | *(CMS-mapped)* | Replaces `OrderConfirmationTotalsComponent` on the order confirmation page to include gift card summary |
 | `OpfGiftCardOrderDetailTotalsComponent` | *(CMS-mapped)* | Replaces `AccountOrderDetailsTotalsComponent` in My Account order details to include gift card totals |
 | `OpfGiftCardOrderDetailBillingComponent` | *(nested)* | Renders billing details section with gift card payment method information |
