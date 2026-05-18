@@ -25,8 +25,10 @@ Checkout tokenisation is outlet-driven, not CMS-driven. OPF injects tokenisation
 
 **Saved cards payment option (radio button) and heading**  
  Displayed when saved cards exist.
+
 **Saved cards list and actions**  
  Displays tokenised cards and allows actions such as selecting a card for payment and setting default.
+ 
 **New payment heading**  
  Separates the saved-cards area from the new-payment area.
 
