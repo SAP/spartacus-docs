@@ -18,7 +18,7 @@ The feature supports the following checkout flows:
 
 ## Enabling Gift Card in Spartacus
 
-Gift Card functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](link-to-section-in-1-open-payment-framework-in-spartacus.md).
+Gift Card functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](1-open-payment-framework-in-spartacus.md#enabling-open-payment-framework-in-spartacus).
 
 **Important:** Gift Card is **not enabled by default**. During the schematics installation process, you must explicitly select or verify that the feature is enabled in your storefront configuration.
 
