@@ -30,35 +30,6 @@ After installation, the gift card feature is available through OPF modules and c
 
 **Note:** The OCC endpoint overrides (`defaultOccOpfGiftCardCartEndpointsConfig`, `defaultOccOpfGiftCardOrderEndpointsConfig`) and cart config (`defaultOpfGiftCardCartConfig`) are intentionally **not** provided by `OpfGiftCardRootModule`. They must be registered conditionally in your app module because they are scoped to B2C + OPF storefronts only and should not be applied globally.
 
-```ts
-if (!environment.b2b && environment.opf) {
-  extensionProviders.push(
-    provideConfig(defaultOccOpfGiftCardCartEndpointsConfig),
-    provideConfig(defaultOccOpfGiftCardOrderEndpointsConfig),
-    provideConfig(defaultOpfGiftCardCartConfig)
-  );
-}
-```
-
-### Adding Translations
-
-Add translations to your storefront via `I18nConfig`:
-
-```ts
-import {
-  opfGiftCardTranslationChunksConfig,
-  opfGiftCardTranslationsEn,
-} from '@spartacus/opf/gift-card/assets';
-
-provideConfig(<I18nConfig>{
-  i18n: {
-    resources: { en: opfGiftCardTranslationsEn },
-    chunks: opfGiftCardTranslationChunksConfig,
-    fallbackLang: 'en',
-  },
-}),
-```
-
 ## CMS Components
 
 The gift card feature overrides three existing CMS components via `defaultOpfGiftCardComponentsConfig` (no ImpEx needed):
@@ -149,64 +120,6 @@ The `orderDetail` and `placePaymentAuthorizedOrder` endpoints include:
 The models are augmented via TypeScript declaration merging, making fields available throughout the storefront:
 - `cart.opfGiftCards`, `cart.opfGiftCardSummary`, `cart.availableOperations`
 - `order.opfGiftCardSummary`
-
-## Data Models
-
-The gift card feature introduces the following models, exported from `@spartacus/opf/gift-card/root`:
-
-### OpfGiftCards
-
-Represents a single applied gift card on the cart:
-
-```ts
-interface OpfGiftCards {
-  id: string;
-  maskedNumber: string;
-  balance: Price;
-  appliedAmount: Price;
-  remainingBalance: Price;
-}
-```
-
-### OpfGiftCardSummary
-
-Represents the aggregate gift card totals for a cart or order:
-
-```ts
-interface OpfGiftCardSummary {
-  totalBalance: Price;
-  totalAppliedAmount: Price;
-  totalRemainingBalance: Price;
-  giftCardsCoverFullAmount: boolean;
-}
-```
-
-The `giftCardsCoverFullAmount` flag is the key signal that drives the full-coverage checkout flow. When `true`, the standard OPF payment step is bypassed.
-
-### OpfGiftCardBalanceRequest
-
-The request body for applying a gift card:
-
-```ts
-interface OpfGiftCardBalanceRequest {
-  number: string;
-  securityCode: string;
-}
-```
-
-### CartAvailableOperation
-
-Represents a cart-level operation availability entry used to control UI actions such as the **Add Gift Card** button:
-
-```ts
-interface CartAvailableOperation {
-  key: string;
-  value: {
-    available?: boolean;
-    name?: string;
-  };
-}
-```
 
 ## Applying and Removing Gift Cards
 
