@@ -2,7 +2,7 @@
 title: Gift Card
 ---
 
-The Open Payment Framework (OPF) Gift Card feature enables customers to use one or more gift cards as a payment method during checkout. Within OPF, gift cards are categorized as a “stored value payment” type.
+The open payment framework (OPF) gift card feature enables customers to use one or more gift cards as a payment method during checkout. Within OPF, gift cards are categorized as a “stored value payment” type.
 
 Customers can apply a gift card by entering the card number and PIN, allowing the gift card balance to be used toward the cart total. If the available balance fully covers the order amount, the order can be completed without adding any other payment method.
 
@@ -18,9 +18,9 @@ The feature supports the following checkout flows:
 
 ## Enabling Gift Card in Spartacus
 
-Gift Card functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](1-open-payment-framework-in-spartacus.md#enabling-open-payment-framework-in-spartacus).
+The gift card functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](1-open-payment-framework-in-spartacus.md#enabling-open-payment-framework-in-spartacus).
 
-**Important:** Gift Card is **not enabled by default**. During the schematics installation process, you must explicitly select or verify that the feature is enabled in your storefront configuration.
+**Important:** Gift card is **not enabled by default**. During the schematics installation process, you must explicitly select or verify that the feature is enabled in your storefront configuration.
 
 After installation, the gift card feature is available through OPF modules and configuration.
 
@@ -106,7 +106,7 @@ The gift card feature emits this event reactively whenever `opfGiftCardSummary.g
 
 ## Runtime Behavior
 
-1. **Gift Card Operations**: Apply/remove actions trigger cart reload on success
+1. **Gift Card Operations**: Apply and remove actions trigger cart reload on success
 2. **Add Gift Card Button**: Displayed based on `applyGiftCard` availability in `cart.availableOperations`
 3. **Form Auto-Close**: The gift card entry form closes when `selectedPaymentOptionId >= -1` (any payment option, including saved payment details with ID `-1`)  
 4. **Full Coverage Flow**: When `giftCardsCoverFullAmount` is `true`, the payment step is skipped and the Place Order button is displayed
@@ -210,7 +210,7 @@ interface CartAvailableOperation {
 
 ## Applying and Removing Gift Cards
 
-### Apply Gift Card
+### Applying Gift Card
 
 The `OpfGiftCardApplyComponent` provides a form with the following fields:
 
@@ -221,7 +221,7 @@ The `OpfGiftCardApplyComponent` provides a form with the following fields:
 
 Enter the card number and PIN, then click **Apply**. If the gift card is valid, it is applied to the cart, a success message is displayed, and the cart total is updated to reflect the applied gift card balance.
 
-### Remove Gift Cards
+### Removing Gift Cards
 
 The `OpfGiftCardAppliedComponent` lists applied cards with remove buttons. Removing a card calls `OpfGiftCardFacade.removeGiftCard(giftCardId)` and reloads the cart.
 
