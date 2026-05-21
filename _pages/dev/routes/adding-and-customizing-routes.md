@@ -203,7 +203,7 @@ routing: {
 
 ## Avoiding Static URL Segments in the Product Page URL (Advanced)
 
-To watch a video explainer of this topic, see [Custom Angular URL Matchers in the Spartacus Storefront](https://microlearning.opensap.com/media/Custom+Angular+URL+Matchers+in+Spartacus+Storefront+-+SAP+Commerce+Cloud/1_hhjqkiuy/178316081).
+To watch a video explainer of this topic, see [Custom Angular URL Matchers in the Spartacus Storefront](https://learning.sap.com/videos/working-with-custom-url-matchers-in-sap-commerce-cloud-composable-storefront?searchId=4b465d61-6700-4da6-9c0a-ea1568571afc&listPosition=1).
 
 Angular, and Spartacus by extension, allows you to configure string patterns to match routes against URLs. An example is `/product/:productCode`, which has two segments. The first segment, `product`, is a static segment that determines the URL is a product page type, and the second segment, `:productCode`, is a dynamic parameter.
 
@@ -288,7 +288,7 @@ search
 
 /cart
 /checkout
-/checkout/delivery-address
+/checkout/shipping-address
 /checkout/delivery-mode
 /checkout/payment-details
 /checkout/review-order
