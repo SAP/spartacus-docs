@@ -171,7 +171,7 @@ You can add products to the quick order list and then to your cart, as follows:
 
    <img src="{{ site.baseurl }}/assets/images/quick-order-8.png" alt="Quick Order Form Suggestion Box" width="700" border="1px" />
  
-   If there is only one product in the suggestions, you can press <kbd>Enter</kbd> to add the product. If there is more that one  product, you can select which product to add by clicking on it, or by navigating to the product using the arrow keys on your keyboard, and then confirming your selection by pressing <kbd>Enter</kbd>.
+   If there is only one product in the suggestions, you can press <kbd>Enter</kbd> to add the product. If there is more than one product, you can select which product to add by clicking on it, or by navigating to the product using the arrow keys on your keyboard, and then confirming your selection by pressing <kbd>Enter</kbd>.
 
    The newly-added product appears in the quick order list.
 
