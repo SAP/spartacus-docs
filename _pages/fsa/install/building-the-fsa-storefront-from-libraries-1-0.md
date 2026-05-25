@@ -86,7 +86,7 @@ ng add @spartacus/fsa-schematics --baseSite=sample-financial-site --currency=usd
 
 For a detailed explanation, visit [FSA Schematics]({{ site.baseurl }}{% link _pages/fsa/install/fsa-schematics.md %}).
 
-For a full list of available parameters, please visit Spartacus Schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
+For a full list of available parameters, please visit Spartacus Schematics [documentation](https://github.com/SAP/spartacus/tree/develop/core-libs/schematics).
 
 ### Installing Dependencies
 

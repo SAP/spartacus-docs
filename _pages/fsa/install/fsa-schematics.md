@@ -2,7 +2,7 @@
 title: Schematics
 ---
 
-FSA Spartacus schematics allow you to install FSA Spartacus libraries in your project. The following sections describe what the FSA Spartacus schematics do, and also provide information about the various options and commands you can use with the schematics. If you are a developer and are looking for more technical information, see the [README](https://github.com/SAP/spartacus/blob/develop/projects/schematics/README.md) in the Spartacus schematics project.
+FSA Spartacus schematics allow you to install FSA Spartacus libraries in your project. The following sections describe what the FSA Spartacus schematics do, and also provide information about the various options and commands you can use with the schematics. If you are a developer and are looking for more technical information, see the [README](https://github.com/SAP/spartacus/blob/develop/core-libs/schematics/README.md) in the Spartacus schematics project.
 
 ***
 
