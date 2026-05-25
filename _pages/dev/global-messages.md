@@ -8,7 +8,7 @@ feature:
 
 There are several types of global messages that you can display in your storefront app. Each type of global message has its own default duration, which you can customize.
 
-Spartacus has the following predefined global message types, which are defined in `projects/core/src/global-message/models/global-message.model.ts`:
+Spartacus has the following predefined global message types, which are defined in `core-libs/core/src/global-message/models/global-message.model.ts`:
 
 ```typescript
 export enum GlobalMessageType {
@@ -19,7 +19,7 @@ export enum GlobalMessageType {
 }
 ```
 
-The global messages model is used in `projects/core/src/global-message/config/global-message-config.ts` to set the time after which the message should disappear. If you omit a particular type in the configuration, the messages for that type will not disappear.
+The global messages model is used in `core-libs/core/src/global-message/config/global-message-config.ts` to set the time after which the message should disappear. If you omit a particular type in the configuration, the messages for that type will not disappear.
 
 The following is an example of the global message config:
 
@@ -44,7 +44,7 @@ export abstract class GlobalMessageConfig {
 
 ## Configuration
 
-You can find the default timeout values that Spartacus uses for global messages in `projects/core/src/global-message/config/default-global-message-config.ts`. The values are set in milliseconds.
+You can find the default timeout values that Spartacus uses for global messages in `core-libs/core/src/global-message/config/default-global-message-config.ts`. The values are set in milliseconds.
 
 If you wish to change any of the default timeout values, you should maintain consistency between the configuration keys and the enum by providing your customized config using a factory provider. The following is an example:
 

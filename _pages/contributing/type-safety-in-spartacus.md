@@ -8,7 +8,7 @@ Use type safety everywhere that you can, including in all pull requests.
 
 **Note**: When working with test files, it is important that `*.spec.ts` files have type safe code that aligns with the files being tested.
 
-If you are looking for generated OCC types, refer to `projects/core/src/occ-models/occ.models.ts`.
+If you are looking for generated OCC types, refer to `core-libs/core/src/occ-models/occ.models.ts`.
 
 ***
 

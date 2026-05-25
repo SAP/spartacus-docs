@@ -42,7 +42,7 @@ export interface CostCenter {
 }
 ```
 
-In the core library, in the `projects/core/public_api.ts` file that defines the public API, Spartacus exports models directly, meaning there is no re-export. The following is an example:
+In the core library, in the `core-libs/core/public_api.ts` file that defines the public API, Spartacus exports models directly, meaning there is no re-export. The following is an example:
 
 ```ts
 export { CostCenter } from './src/model/org-unit.model';

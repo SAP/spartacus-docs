@@ -15,7 +15,7 @@ reportProgress('Reading files');
  * - Events extended in other files
  */
 const cxEvent = project.getSourceFileOrThrow(
-  'projects/core/src/event/cx-event.ts'
+  'core-libs/core/src/event/cx-event.ts'
 );
 
 const pageEvent = project.getSourceFileOrThrow(
@@ -24,7 +24,7 @@ const pageEvent = project.getSourceFileOrThrow(
 
 // Scanning ts files in the source code excluding tests and schematics
 const files = project.getSourceFiles([
-  'projects/core/**/*.ts',
+  'core-libs/core/**/*.ts',
   'core-libs/storefront/**/*.ts',
   '!projects/**/*.spec.ts',
   'feature-libs/**/*.ts',
