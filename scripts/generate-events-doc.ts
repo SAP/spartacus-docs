@@ -26,6 +26,7 @@ const pageEvent = project.getSourceFileOrThrow(
 const files = project.getSourceFiles([
   'core-libs/core/**/*.ts',
   'core-libs/storefront/**/*.ts',
+  '!core-libs/**/*.spec.ts',
   '!projects/**/*.spec.ts',
   'feature-libs/**/*.ts',
   '!feature-libs/**/*.spec.ts',
