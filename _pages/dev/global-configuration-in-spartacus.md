@@ -134,4 +134,4 @@ Using the techniques describes in the previous sections, you can use the Spartac
 
 - Add an interface to the `storefrontConfiguration` type.
 
-  If you are developing a core storefront feature and want to make your configuration options available to use with `B2cStorefrontModule.withConfig()`, import and include your new type to the global `StorefrontModuleConfig` type in `projects/storefrontlib/src/lib/storefront-config.ts`.
+  If you are developing a core storefront feature and want to make your configuration options available to use with `B2cStorefrontModule.withConfig()`, import and include your new type to the global `StorefrontModuleConfig` type in `core-libs/storefront/src/lib/storefront-config.ts`.

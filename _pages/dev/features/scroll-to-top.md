@@ -125,7 +125,7 @@ You can customize the scroll to top feature by modifying the action it performs.
 
 1. Create a new component.
    1. To replace the existing component, create a new `src/components/scroll-to-top` directory inside your Spartacus app.
-   1. Copy the existing component source files from `spartacus/projects/storefrontlib/cms-components/navigation/scroll-to-top` to the `src/components/scroll-to-top` directory.
+   1. Copy the existing component source files from `spartacus/core-libs/storefront/cms-components/navigation/scroll-to-top` to the `src/components/scroll-to-top` directory.
    1. In the `scroll-to-top.component.ts` and `scroll-to-top.module.ts` files, remove all lines that import relative paths.
    1. In `scroll-to-top.component.ts`, add the following import:
 

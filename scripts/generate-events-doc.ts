@@ -19,13 +19,13 @@ const cxEvent = project.getSourceFileOrThrow(
 );
 
 const pageEvent = project.getSourceFileOrThrow(
-  'projects/storefrontlib/events/page/page.events.ts'
+  'core-libs/storefront/events/page/page.events.ts'
 );
 
 // Scanning ts files in the source code excluding tests and schematics
 const files = project.getSourceFiles([
   'projects/core/**/*.ts',
-  'projects/storefrontlib/**/*.ts',
+  'core-libs/storefront/**/*.ts',
   '!projects/**/*.spec.ts',
   'feature-libs/**/*.ts',
   '!feature-libs/**/*.spec.ts',
