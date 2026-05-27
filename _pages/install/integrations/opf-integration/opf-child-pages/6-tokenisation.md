@@ -11,7 +11,7 @@ It supports two key flows:
 
 ## Enabling Tokenisation in Spartacus
 
-Tokenisation functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](link-to-section-in-1-open-payment-framework-in-spartacus.md). Note that tokenisation is disabled by default and must be explicitly enabled during the schematics installation.
+Tokenisation functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](1-open-payment-framework-in-spartacus.md#enabling-open-payment-framework-in-spartacus). Note that tokenisation is disabled by default and must be explicitly enabled during the schematics installation.
 
 After installation, tokenisation is available through OPF modules and configuration.
 
@@ -28,7 +28,7 @@ Checkout tokenisation is outlet-driven, not CMS-driven. OPF injects tokenisation
 
 **Saved cards list and actions**  
  Displays tokenised cards and allows actions such as selecting a card for payment and setting default.
- 
+
 **New payment heading**  
  Separates the saved-cards area from the new-payment area.
 
