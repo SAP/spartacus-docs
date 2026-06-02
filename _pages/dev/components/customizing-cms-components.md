@@ -115,7 +115,7 @@ provideConfig({
 });
 ```
 
-One JS file can contain more that one web component implementation, with each implementation used as a different `CmsComponent`.
+One JS file can contain more than one web component implementation, with each implementation used as a different `CmsComponent`.
 
 This requires a separate build process to generate the JS chunk that holds the web component (or components), which is out of scope for this documentation.
 

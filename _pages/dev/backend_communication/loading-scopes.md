@@ -65,7 +65,7 @@ When you are working with the Spartacus `OccProductAdapter`, you can configure s
 }
 ```
 
-Spartacus  preprocesses these fields to optimize calls to the back end, especially to limit the number of calls if more that one scope is requested at the same time.
+Spartacus preprocesses these fields to optimize calls to the back end, especially to limit the number of calls if more than one scope is requested at the same time.
 
 Ideally, `fields` descriptions should be as specific as possible, and aliases such as `BASIC`, `DEFAULT` and `FULL` should be avoided, where possible.
 
