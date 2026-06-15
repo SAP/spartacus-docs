@@ -52,7 +52,6 @@ If your Spartacus app was created before version 2211.29, to benefit from all as
 
 - Enable the `propagateErrorsToServer` feature update toggle to start propagating the errors caught during server-side rendering to the ExpressJS server, where eventually they will be properly handled. For more information, see [Propagating Errors To The Server](#propagating-errors-to-the-server) and [Activating Propagate to Server](link to doc on help portal).
 - Enable the `ssrStrictErrorHandlingForHttpAndNgrx` feature update toggle to seal the Angular application from the asynchronous errors that occur in the NgRx flow and from HTTP calls during the rendering process. For more information, see [Strict Error Handling for HTTP And NgRx](#strict-error-handling-in-angular-for-http-and-ngrx) and [Activating SSR Strict Error Handling For HTTP and Ngrx](link to doc on help portal).
-- Enable `ssrFeatureToggle.avoidCachingErrors` in `SsrOptimizationOptions` to not cache any pages where an error occurs during rendering. For more information, see [Cache management and error handling](#cache-management-and-error-handling) and [Activating Avoid Cache Error](link to doc on help portal).
 - Use the `defaultExpressErrorHandlers` middleware in `server.ts` to handle errors in ExpressJS. For more information, see [Using Default ExpressJS Error Handlers](#using-default-expressjs-error-handlers).
 - Ensure that the `provideServer()` config function is provided in the `app.server.module.ts` file. It contains elements that are required for SSR error handling to work properly.
 
@@ -346,7 +345,7 @@ shouldCacheRenderingResult?: ({
   }) => boolean;
 ```
 
-By default, all HTML rendering results are cached. Also, all errors are cached by default, unless the separate `ssrFeatureToggles.avoidCachingErrors` option is enabled.
+By default, all HTML rendering results are cached and errors are not.
 
 If needed, the caching strategy can be easily customized by providing its own function.
 
