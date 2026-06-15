@@ -80,11 +80,7 @@ By default, the SSR optimization engine uses the following configuration:
     defaultRenderingStrategyResolverOptions
   ),
   logger: new DefaultExpressServerLogger(),
-  shouldCacheRenderingResult: ({ options, entry }) =>
-    !(
-      options.ssrFeatureToggles?.avoidCachingErrors === true &&
-      Boolean(entry.err)
-    ),
+  shouldCacheRenderingResult: ({ entry: { err } }) => !err,
 }
 ```
 
@@ -147,8 +143,6 @@ The default implementation is the `DefaultCacheEntrySizeCalculator` class. For a
 The `DefaultCacheEntrySizeCalculator` estimates the size of the error by summing up its three string properties: `name`, `message`, and `trace`. Although this calculation does not provide perfect results (because it can lead to underestimation, especially when the error object has numerous additional properties, or it is not actually an instance of an `Error` object, such as `cacheEntry.err`, which can be an object of any type), in general, the default `cacheEntrySizeCalculator` should be sufficient.
 
 Although caching error objects is not recommended, if you wish to cache certain error objects, the `cacheEntrySizeCalculator` allows you to customize the default logic for calculating the size of cached errors.
-
-To avoid caching error objects, enable the `ssrFeatureToggles.avoidCachingErrors` feature toggle. For more information on enabling this toggle, see [Activating Avoid Caching Errors](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/cee75ac05742431986af71f3884fe84c.html?locale=en-US).
 
 ### cacheSize
 
@@ -249,7 +243,7 @@ The logger property is optional. By default, the `DefaultExpressServerLogger` is
 
 When caching is enabled, this function indicates whether the given rendering result (HTML or an error) should be cached.
 
-By default, all HTML rendering results are cached. Also, all errors are cached by default, unless the `avoidCachingErrors` SSR feature toggle is enabled.
+By default, all HTML rendering results are cached and errors are not.
 
 ## Troubleshooting
 
