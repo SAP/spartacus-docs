@@ -14,6 +14,7 @@ For Spartacus to work with an authorization server, set the following feature to
 - `incrementProcessesCountForMergeCart`
 - `dispatchLoginActionOnlyWhenTokenReceived`
 - `cdsLoginEventsToken`
+- `asyncAuthConfigInitializer` (version 221121.15 and higher)
 
 These toggles are described in more detail in [Authentication Feature Toggles](#authentication-feature-toggles), below.
 
@@ -21,6 +22,7 @@ The following configuration options in `spartacus-features.module.ts` allow for 
 
 - `AuthConfig.authentication.sendAuthHeaderOnRevoke`: Enables or disables sending the current token in the "Authorization" header.
 - `AuthConfig.authentication.useClientTokens`: Enables or disables the use of client tokens being sent with otherwise public APIs. This was achieved in the OCC adapter layer by adding a special header using the `USE_CLIENT_TOKEN` constant. An interceptor reads this header value and replaces it with an "Authorization" header with a client token as the value. Note that the `USE_CLIENT_TOKEN` header is still removed from requests even when `useClientTokens` is set to `false`.
+- Version 221121.15 and higher, `AuthConfig.authentication.initializerOptions`: Enable behaviors of the runtime config initializer.  In addition to `true`/`false` to enable/disable, the value of `"auto"` will apply the initialization logic only when it is detected as necessary.
 
 You can learn more about advanced configuration of the authentication flow by looking at the `angular-oauth2-oidc` library source code, as well as the [angular-oauth2-oidc documentation](https://github.com/manfredsteyer/angular-oauth2-oidc).
 
@@ -54,6 +56,34 @@ When enabled, the `dispatchLoginActionOnlyWhenTokenReceived` feature toggle limi
 When enabled, the `cdsLoginEventsToken` feature toggle allows the `LOGIN_EVENTS` token to inject an observable that, on subscription, replays any login events recorded during application startup.  Login action events are now emitted during app initialization. This logic preserves the login event from application bootstrapping so that late consumers that are created after application bootstrapping are able to respond to the login event. The prior behavior relied on login happening after application bootstrapping, so there was no need to replay the event for consumers.
 
 It is recommended that you replace the `ActionsSubject` token with the `LOGIN_EVENTS` token in the application for detecting login events.
+
+### asyncAuthConfigInitializer
+
+This flag was introduced in Spartacus version 221121.15.
+
+When enabled, the `asyncAuthConfigInitializer` feature toggle will introduce a `ConfigInitializer` for the AuthConfig.  Additionally it makes the configuration of the oAuth library asynchronous, meaning Spartacus will wait for configuration to complete before using the oAuth library.
+
+The newly added `AuthConfigInitializer` allows for runtime configuration of the Spartacus configurations.  The implementation introduces 2 new behaviors: 
+1. Change the default redirect URL to include the base site URL context parameter
+2. Add the base site as a suffix to the configured client ID.  
+
+These behaviors can be independently controlled through the `AuthConfig.authentication.initializerOptions` object.  They may be explicitly enabled or disabled, or set to automatically apply when relevant.  Relevance is determined by the presence of the base site in the URL context parameters.  For more details on URL context parameters, see [Static Multi-Site Configuration](context/static-context-configuration.md) and [Automatic Multi-Site Configuration](context/automatic-context-configuration.md).
+
+The purpose of initializing the redirect URL and client ID is to handle base site resolution during the Authorization Code flow.  When the base site is in the URL context parameter list, Spartacus will assume that multiple sites are being hosted on the same domain (i.e. https://example.com/electronics-spa and https://example.com/powertools-spa).  In this scenario, the Authorization Code flow process will need to configured with a return URI including the base site.  Otherwise, when returning from the authorization server, Spartacus will not be able to identify from which base site the user originated.  This same problem also applies for the Custom Login URI set in the SAP Commerce Cloud OAuthClientDetails.  Since that field is not dynamic enough to read the return URI path, it must be hard-coded with the path.  This means that a client ID will only work for a single base site.  With Spartacus adjusting the client ID at runtime to have the base site added as a suffix, it creates a unique, predictable client ID that can then be pre-configured in SAP Commerce Cloud with the appropriate Custom Login Page URI for each base site.
+
+Example Client ID assignment:
+```
+Spartacus build:
+  - Client ID set to "mobile_android_public"
+
+On site https://example.com/electronics-spa:
+  - Base site is "electronics-spa"
+  - Client ID will be set at runtime to "mobile_android_public_electronics-spa"
+
+On site https://example.com/powertools-spa:
+  - Base site is "powertools-spa"
+  - Client ID will be set at runtime to "mobile_android_public_powertools-spa"
+```
 
 ## Enabling a Custom Login Page in Spartacus
 
