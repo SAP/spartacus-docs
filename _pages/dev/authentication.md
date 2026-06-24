@@ -61,29 +61,14 @@ It is recommended that you replace the `ActionsSubject` token with the `LOGIN_EV
 
 This flag was introduced in Spartacus version 221121.15.
 
-When enabled, the `asyncAuthConfigInitializer` feature toggle will introduce a `ConfigInitializer` for the AuthConfig.  Additionally it makes the configuration of the oAuth library asynchronous, meaning Spartacus will wait for configuration to complete before using the oAuth library.
+When enabled, the `asyncAuthConfigInitializer` feature toggle will introduce a `ConfigInitializer` for the AuthConfig and makes the configuration of the oAuth library asynchronous.  This means Spartacus will wait for configuration to complete before proceeding with any oAuth library operations, such as login/logout and token refresh.
 
-The newly added `AuthConfigInitializer` allows for runtime configuration of the Spartacus configurations.  The implementation introduces 2 new behaviors: 
+The newly added `AuthConfigInitializer` implementation introduces 2 new behaviors: 
 1. Change the default redirect URL to include the base site URL context parameter
 2. Add the base site as a suffix to the configured client ID.  
 
-These behaviors can be independently controlled through the `AuthConfig.authentication.initializerOptions` object.  They may be explicitly enabled or disabled, or set to automatically apply when relevant.  Relevance is determined by the presence of the base site in the URL context parameters.  For more details on URL context parameters, see [Static Multi-Site Configuration](context/static-context-configuration.md) and [Automatic Multi-Site Configuration](context/automatic-context-configuration.md).
+These behaviors are set to auto-activate by default, and may require additional configuration in Commerce Cloud.  For more details, see [Auth Config Initializer](features/auth-config-initializer.md).
 
-The purpose of initializing the redirect URL and client ID is to handle base site resolution during the Authorization Code flow.  When the base site is in the URL context parameter list, Spartacus will assume that multiple sites are being hosted on the same domain (i.e. https://example.com/electronics-spa and https://example.com/powertools-spa).  In this scenario, the Authorization Code flow process will need to configured with a return URI including the base site.  Otherwise, when returning from the authorization server, Spartacus will not be able to identify from which base site the user originated.  This same problem also applies for the Custom Login URI set in the SAP Commerce Cloud OAuthClientDetails.  Since that field is not dynamic enough to read the return URI path, it must be hard-coded with the path.  This means that a client ID will only work for a single base site.  With Spartacus adjusting the client ID at runtime to have the base site added as a suffix, it creates a unique, predictable client ID that can then be pre-configured in SAP Commerce Cloud with the appropriate Custom Login Page URI for each base site.
-
-Example Client ID assignment:
-```
-Spartacus build:
-  - Client ID set to "mobile_android_public"
-
-On site https://example.com/electronics-spa:
-  - Base site is "electronics-spa"
-  - Client ID will be set at runtime to "mobile_android_public_electronics-spa"
-
-On site https://example.com/powertools-spa:
-  - Base site is "powertools-spa"
-  - Client ID will be set at runtime to "mobile_android_public_powertools-spa"
-```
 
 ## Enabling a Custom Login Page in Spartacus
 
