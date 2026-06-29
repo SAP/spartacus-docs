@@ -69,7 +69,6 @@ By default, the SSR optimization engine uses the following configuration:
 
 ```ts
 {
-  cacheSize: 3000,
   cacheSizeMemory: 800_000_000,
   concurrency: 10,
   timeout: 3_000,
@@ -116,13 +115,11 @@ The default value is `3000` milliseconds.
 
 The `cache` setting is a boolean that enables the built-in, in-memory cache for pre-rendered URLs. This option is not related to any kind of external caching layer, such as a CDN. Even when this value is set to `false`, the cache is used to temporarily store the pages that finish rendering after the CSR fallback, so they can be served with the next request (after which, the cache is cleared).
 
-**Note:** The in-memory cache should be used carefully to avoid running out of memory. Using the `cacheSizeMemory` setting (or the deprecated `cacheSize` setting) can help avoid this. However, the in-memory cache **consumes the server's memory**, and if there are any memory leaks, this can cause the server to stall or even crash if the server runs out of memory.
+**Note:** The in-memory cache should be used carefully to avoid running out of memory. Using the `cacheSizeMemory` setting can help avoid this. However, the in-memory cache **consumes the server's memory**, and if there are any memory leaks, this can cause the server to stall or even crash if the server runs out of memory.
 
 It is generally recommended to **not** enable the `cache` setting because there are better ways to turn on the caching (such as using a CDN, for example).
 
 ### cacheSizeMemory
-
-The `cacheSizeMemory` setting is introduced in Spartacus 2211.42, and requires `ssrFeatureToggles.limitCacheByMemory` to be set to `true` in your `server.ts` file. For more information on enabling this feature toggle, see [Activating Limit Cache by Memory](doc to be provided in help portal).
 
 The `cacheSizeMemory` setting is a value that limits the cache size memory to a specific number of bytes to help keep memory usage under control.
 
@@ -138,8 +135,6 @@ For more information on the Node.js "Resident Set Size" (rss), see [Monitoring M
 
 ### cacheEntrySizeCalculator
 
-The `cacheEntrySizeCalculator` setting is introduced in Spartacus 2211.42, and requires `ssrFeatureToggles.limitCacheByMemory` to be set to `true` in your `server.ts` file. For more information on enabling this feature toggle, see [Activating Limit Cache by Memory](doc to be provided in help portal).
-
 The `cacheEntrySizeCalculator` is a strategy for calculating the size of a cache entry. You can use it to keep track of the used cache size, so the oldest entries are removed when the cache size reaches its memory limit.
 
 The default implementation is the `DefaultCacheEntrySizeCalculator` class. For an HTML string, it returns the size of the string in bytes, assuming two bytes per character, which is an upper-bound estimation, and assuming V8 is using the [`SeqTwoByteString` data structure](https://github.com/v8/v8/blob/c865b8257a/src/objects/string.h#L921-L923) for string cache entries.
@@ -149,18 +144,6 @@ The `DefaultCacheEntrySizeCalculator` estimates the size of the error by summing
 Although caching error objects is not recommended, if you wish to cache certain error objects, the `cacheEntrySizeCalculator` allows you to customize the default logic for calculating the size of cached errors.
 
 To avoid caching error objects, enable the `ssrFeatureToggles.avoidCachingErrors` feature toggle. For more information on enabling this toggle, see [Activating Avoid Caching Errors](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/cee75ac05742431986af71f3884fe84c.html?locale=en-US).
-
-### cacheSize
-
-The `cacheSize` setting is deprecated starting with Spartacus 2211.42. If you are using Spartacus 2211.42 or newer, use the `cacheSizeMemory` setting instead by enabling the `ssrFeatureToggles.limitCacheByMemory` feature toggle. The deprecated `cacheSize` setting does not allow for precise and predictable control of the actual memory usage of the cache, which is now provided by the `cacheSizeMemory` setting. For more information on enabling the `limitCacheByMemory` feature toggle, see [Activating Limit Cache by Memory](doc to be provided in help portal).
-
-The `cacheSize` setting is a number that limits the cache size to a specific number of entries. This setting helps to keep memory usage under control.
-
-The `cacheSize` setting can also be used when the `cache` setting is set to `false`. This then limits the number of timed-out renders that are kept in a temporary cache and which are waiting to be served with the next request.
-
-It is recommended that the `cacheSize` should be set according to the server's resources (such as the amount of available RAM), as well as leaving some room for spikes in the memory that is needed by the Angular SSR engine for rendering pages. It is recommended that you set the `cacheSize`, regardless of whether the `cache` setting is disabled.
-
-The default `cacheSize` is set to `3000` entries. Before version 2211.19 of Spartacus, no default value was set, which could result in unlimited cached pages for those pages that fell back to CSR due to timeout. This could potentially lead to a memory leak.
 
 ### concurrency
 
@@ -487,7 +470,6 @@ If you see this message, you can try the following:
 
 If your process restarts periodically because it is running out of memory, first check whether you have any memory leaks in your application, and try to fix those. If you are still running out of memory, try the following:
 
-- Ensure you have enabled the `ssrFeatureToggles.limitCacheByMemory` toggle, which limits the cache size by memory, rather than by the number of entries, thereby providing more predictable memory usage. For more information, see `cacheSizeMemory` in [Configuring the SSR Optimization Engine](#configuring-the-ssr-optimization-engine), above.
 - Reduce the default value of the `cacheSizeMemory` setting.
 - Reduce the default `concurrency` setting to allow for less rendering in parallel. Be aware that lowering the value of the `concurrency` setting may result in more requests falling back to CSR.
 - Upgrade the Node.js pod size to increase the available memory, and increase the max-memory-restart factor.
@@ -537,7 +519,7 @@ For example, in your local environment, spikes can be estimated by periodically 
    setInterval(logMemoryUsage, MEMORY_LOG_INTERVAL);
    ```
 
-   When you are using the `cacheSizeMemory` configuration property (which requires `ssrFeatureToggles.limitCacheByMemory` to be set to `true`), you do not need to estimate the V8 engine's memory allocation for the cache entry of specific pages. However, if you are curious, you can do so by running the following command:
+   When you are using the `cacheSizeMemory` configuration property, you do not need to estimate the V8 engine's memory allocation for the cache entry of specific pages. However, if you are curious, you can do so by running the following command:
 
    ```bash
    # `curl` to make a HTTP request to the page
