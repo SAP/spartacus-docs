@@ -14,7 +14,7 @@ For Spartacus to work with an authorization server, set the following feature to
 - `incrementProcessesCountForMergeCart`
 - `dispatchLoginActionOnlyWhenTokenReceived`
 - `cdsLoginEventsToken`
-- `asyncAuthConfigInitializer` (version 221121.15 and higher)
+- `asyncAuthConfigInitializer` (requires Spartacus version 221121.15 or newer)
 
 These toggles are described in more detail in [Authentication Feature Toggles](#authentication-feature-toggles), below.
 
@@ -22,7 +22,7 @@ The following configuration options in `spartacus-features.module.ts` allow for 
 
 - `AuthConfig.authentication.sendAuthHeaderOnRevoke`: Enables or disables sending the current token in the "Authorization" header.
 - `AuthConfig.authentication.useClientTokens`: Enables or disables the use of client tokens being sent with otherwise public APIs. This was achieved in the OCC adapter layer by adding a special header using the `USE_CLIENT_TOKEN` constant. An interceptor reads this header value and replaces it with an "Authorization" header with a client token as the value. Note that the `USE_CLIENT_TOKEN` header is still removed from requests even when `useClientTokens` is set to `false`.
-- Version 221121.15 and higher, `AuthConfig.authentication.initializerOptions`: Enable behaviors of the runtime config initializer.  In addition to `true`/`false` to enable/disable, the value of `"auto"` will apply the initialization logic only when it is detected as necessary.
+- `AuthConfig.authentication.initializerOptions`: Enables behaviors for the runtime config initializer. In addition to values of `true` and `false` to enable or disable the functionality, the `auto` value applies the initialization logic only when it is detected as necessary. This option requires Spartacus version 221121.15 or newer.
 
 You can learn more about advanced configuration of the authentication flow by looking at the `angular-oauth2-oidc` library source code, as well as the [angular-oauth2-oidc documentation](https://github.com/manfredsteyer/angular-oauth2-oidc).
 
@@ -59,16 +59,16 @@ It is recommended that you replace the `ActionsSubject` token with the `LOGIN_EV
 
 ### asyncAuthConfigInitializer
 
-This flag was introduced in Spartacus version 221121.15.
+This feature toggle is introduced in Spartacus version 221121.15.
 
-When enabled, the `asyncAuthConfigInitializer` feature toggle will introduce a `ConfigInitializer` for the AuthConfig and makes the configuration of the oAuth library asynchronous.  This means Spartacus will wait for configuration to complete before proceeding with any oAuth library operations, such as login/logout and token refresh.
+When enabled, the `asyncAuthConfigInitializer` feature toggle introduces a `ConfigInitializer` for the `AuthConfig`, and makes the configuration of the OAuth library asynchronous.  This means Spartacus waits for configuration to complete before proceeding with any OAuth library operations, such as login, logout, and token refresh.
 
-The newly added `AuthConfigInitializer` implementation introduces 2 new behaviors: 
-1. Change the default redirect URL to include the base site URL context parameter
-2. Add the base site as a suffix to the configured client ID.  
+The newly added `AuthConfigInitializer` implementation introduces the following new behaviors:
 
-These behaviors are set to auto-activate by default, and may require additional configuration in Commerce Cloud.  For more details, see [Auth Config Initializer](features/auth-config-initializer.md).
+- Changes the default redirect URL to include the base site URL context parameter
+- Adds the base site as a suffix to the configured client ID.  
 
+These behaviors are set to auto-activate by default, but may require additional configuration in SAP Commerce Cloud. For more information, see [Auth Config Initializer](features/auth-config-initializer.md). If you are working with a Spartacus app that has been upgraded to version 221121.15, see also [Activating Async Auth Config Initializer](link-to-doc-in-portal).
 
 ## Enabling a Custom Login Page in Spartacus
 
