@@ -21,7 +21,7 @@ After upgrading to a new major version, the migration mechanism should be update
 
 ## Structure for Updating Schematics
 
-The `projects/schematics/src/migrations/migrations.json` file contains a list of all the migration scripts for every Spartacus version. The following is an example of a migration script:
+The `core-libs/schematics/src/migrations/migrations.json` file contains a list of all the migration scripts for every Spartacus version. The following is an example of a migration script:
 
 ```json
 "migration-v3-constructor-deprecations-03": {
@@ -37,23 +37,23 @@ Each script has a set of properties, which are described as follows:
   - `version` indicates which version of Spartacus the migration is intended for.
   - `migration-feature-name` is a short name that describes what the migration is doing.
   - `sequence-number` indicates the order of execution for the migration scripts. For example, if a script has a `sequence-number` of `03`, it will be the third script to execute when the migration scripts are run.
-- `version` is very important for the Angular update mechanism. It is used to automatically run the required migration scripts for a specific version. For more information, see the [Releasing Update Schematics](https://github.com/SAP/spartacus/tree/develop/projects/schematics#releasing-update-schematics) section of the schematics README.
+- `version` is very important for the Angular update mechanism. It is used to automatically run the required migration scripts for a specific version. For more information, see the [Releasing Update Schematics](https://github.com/SAP/spartacus/tree/develop/core-libs/schematics#releasing-update-schematics) section of the schematics README.
 - `factory` points to the relevant migration script.
 - `description` is a short, free-form description field to describe what the migration script does.
 
 ## Validations
 
-If any validations need to be run before actually upgrading Spartacus, you can use the "migration script" located in `projects/schematics/src/migrations/2_0/validate.ts`.
+If any validations need to be run before actually upgrading Spartacus, you can use the "migration script" located in `core-libs/schematics/src/migrations/2_0/validate.ts`.
 
 ## Constructor Deprecation
 
-The `projects/schematics/src/migrations/2_0/constructor-deprecations.ts` performs the constructor migration tasks. Usually, a developer does not need to touch this file, and instead should describe constructor deprecations in `projects/schematics/src/migrations/2_0/constructor-deprecation-data.ts`. The `CONSTRUCTOR_DEPRECATION_DATA` constant describes the deprecated constructor, and includes the `addParams` and `removeParams` properties that allow you to specify which parameters should be added or removed, respectively.
+The `core-libs/schematics/src/migrations/2_0/constructor-deprecations.ts` performs the constructor migration tasks. Usually, a developer does not need to touch this file, and instead should describe constructor deprecations in `core-libs/schematics/src/migrations/2_0/constructor-deprecation-data.ts`. The `CONSTRUCTOR_DEPRECATION_DATA` constant describes the deprecated constructor, and includes the `addParams` and `removeParams` properties that allow you to specify which parameters should be added or removed, respectively.
 
 ## Commenting Code
 
 When it is not possible to automatically migrate code, we often place a comment in the customer's code base that describes what the customer should do to upgrade their project to the new version of Spartacus. We should do this only in cases where upgrading manually is easy, and writing a migration script would be too complex.
 
-The `projects/schematics/src/shared/utils/file-utils.ts#insertCommentAboveIdentifier` method adds comments above the specified `identifier` TypeScript node.
+The `core-libs/schematics/src/shared/utils/file-utils.ts#insertCommentAboveIdentifier` method adds comments above the specified `identifier` TypeScript node.
 
 The following are examples of how you might add a comment:
 
@@ -62,7 +62,7 @@ The following are examples of how you might add a comment:
 
 ## Component Deprecation
 
-Similar to constructor deprecation, `projects/schematics/src/migrations/2_0/component-deprecations.ts` performs component migration tasks, for both component `*.ts` and `HTML` templates. Usually, a developer does not need to touch this file, and instead should describe component deprecations in `projects/schematics/src/migrations/2_0/component-deprecations-data.ts`. The `COMPONENT_DEPRECATION_DATA` constant describes the deprecated components.
+Similar to constructor deprecation, `core-libs/schematics/src/migrations/2_0/component-deprecations.ts` performs component migration tasks, for both component `*.ts` and `HTML` templates. Usually, a developer does not need to touch this file, and instead should describe component deprecations in `core-libs/schematics/src/migrations/2_0/component-deprecations-data.ts`. The `COMPONENT_DEPRECATION_DATA` constant describes the deprecated components.
 
 ## CSS
 

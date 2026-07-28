@@ -83,7 +83,7 @@ We also encourage to use the Prettier VS Code plugin. For more information, see 
 
 We use Sass for all of our CSS, which then is converted to CSS using [node-sass](https://github.com/sass/node-sass/blob/master/README.md).
 
-Use the following command to preprocess the Sass in `projects/storefrontstyles`
+Use the following command to preprocess the Sass in `core-libs/styles`
 
 ```bash
 npm run sass

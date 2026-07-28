@@ -328,7 +328,7 @@ Another important aspect for SEO is the usage of the alternative (`alt`) text fo
 
 ## Configuring the Media Base URL and Media Prefix
 
-In the `projects/core/src/occ/config/occ-config.ts` file, the `BackendConfig` interface defines extension points that allow customers to configure the backend connection settings for OCC API calls, as well as how media asset loading behaves within Spartacus.
+In the `core-libs/core/src/occ/config/occ-config.ts` file, the `BackendConfig` interface defines extension points that allow customers to configure the backend connection settings for OCC API calls, as well as how media asset loading behaves within Spartacus.
 
 Starting with Spartacus version 221121.10, you can configure the `media.baseUrl` and the `media.prefix` to control how media asset loading works in Spartacus, as described in the following table:
 

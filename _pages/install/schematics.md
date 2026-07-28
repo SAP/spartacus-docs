@@ -2,7 +2,7 @@
 title: Schematics
 ---
 
-Spartacus schematics allow you to install Spartacus libraries in your project. The following sections describe what the Spartacus schematics do, and also provide information about the various options and commands you can use with the schematics. If you are a developer and are looking for more technical information, see the [README](https://github.com/SAP/spartacus/blob/develop/projects/schematics/README.md) in the Spartacus schematics project.
+Spartacus schematics allow you to install Spartacus libraries in your project. The following sections describe what the Spartacus schematics do, and also provide information about the various options and commands you can use with the schematics. If you are a developer and are looking for more technical information, see the [README](https://github.com/SAP/spartacus/blob/develop/core-libs/schematics/README.md) in the Spartacus schematics project.
 
 ***
 
@@ -65,7 +65,7 @@ This next example bypasses the schematics prompts and installs Spartacus with a 
 ng add @spartacus/schematics@latest --base-url https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --base-site=electronics-spa --no-interactive
 ```
 
-To see which features are included when you use the `--no-interactive` flag, see [schema.json](https://github.com/SAP/spartacus/blob/develop/projects/schematics/src/add-spartacus/schema.json#L40).
+To see which features are included when you use the `--no-interactive` flag, see [schema.json](https://github.com/SAP/spartacus/blob/develop/core-libs/schematics/src/add-spartacus/schema.json#L40).
 
 ### Additional Commands for Core Libraries and Features
 
@@ -97,7 +97,7 @@ The following is a description of the available options for the CMS component sc
 - `--cms-component-data-model`, alias `--cms-model`, specifies the model class for the `CmsComponentData`, such as `MyModel`, for example. This argument is required if `--cms-component-data` is set to `true`.
 - `--cms-component-data-model-path`, alias `--cms-model-path`, specifies the import path for the `CmsComponentData`. The default is `@spartacus/core`.
 
-Aside from these custom options, the `add-cms-component` supports almost all options that are available for the Angular component and module schematics. The full list can be seen in this [schema.json](https://github.com/SAP/spartacus/blob/develop/projects/schematics/src/add-cms-component/schema.json) file.
+Aside from these custom options, the `add-cms-component` supports almost all options that are available for the Angular component and module schematics. The full list can be seen in this [schema.json](https://github.com/SAP/spartacus/blob/develop/core-libs/schematics/src/add-cms-component/schema.json) file.
 
 The following Angular options are not supported:
 
