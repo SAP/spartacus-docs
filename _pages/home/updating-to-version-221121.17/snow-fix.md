@@ -1,6 +1,7 @@
 ---
 title: SNOW Fix for 221121.17
 ---
+
 # Validating Trusted Origins in SSR
 
 ## What this does
