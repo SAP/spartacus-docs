@@ -16,10 +16,10 @@ Quick Buy functionality is added to your storefront app when you install the ope
 
 Quick Buy is CMS-driven and uses the following components:
 
-- `OpfQuickBuyButtonsComponent` — renders wallet payment buttons (Google Pay, Apple Pay) on the cart page and the product detail page.
-- `OpfCtaQuickBuyButtons` — renders CTA-based Quick Buy buttons (for example, PayPal) if you are using CTA Quick Buy.
+- `OpfQuickBuyButtonsComponent`, which renders wallet payment buttons (such as Google Pay and Apple Pay) on the cart page and the product detail page.
+- `OpfCtaQuickBuyButtons`, which renders CTA-based Quick Buy buttons (for example, PayPal) if you are using CTA Quick Buy.
 
-If you are using the [Spartacus Sample Data Extension](link), the Quick Buy components are already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the Quick Buy CMS components manually through ImpEx.
+If you are using the [Spartacus Sample Data Extension](link), the Quick Buy components are already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the Quick Buy CMS components manually through ImpEx, as described in the following section.
 
 ### Adding CMS Components Manually
 
@@ -131,25 +131,25 @@ provideConfig(<OpfQuickBuyConfig>{
 });
 ```
 
-## Quick Buy on the Product Detail Page
+## Quick Buy on the Product Details Page
 
-Quick Buy wallet buttons (Google Pay and Apple Pay) can be displayed directly on the product detail page (PDP), allowing customers to complete a purchase for a single product without first adding it to the cart.
+Quick Buy wallet buttons (such as Google Pay and Apple Pay) can be displayed directly on the Product Details Page (PDP), allowing customers to complete a purchase for a single product without first adding it to the cart.
 
-When the `OpfQuickBuyButtonsComponent` is placed in a PDP content slot, Spartacus automatically uses a single-product transaction flow instead of the active-cart flow. This context-based selection is handled internally by `OpfQuickBuyTransactionService`, which delegates to either `OpfQuickBuyActiveCartTransactionService` (cart page) or `OpfQuickBuySingleProductTransactionService` (PDP) based on where the component is rendered.
+When the `OpfQuickBuyButtonsComponent` is placed in a PDP content slot, Spartacus automatically uses a single-product transaction flow instead of the active-cart flow. This context-based selection is handled internally by `OpfQuickBuyTransactionService`, which delegates to either `OpfQuickBuyActiveCartTransactionService` if the user is on the Cart page, or `OpfQuickBuySingleProductTransactionService` if the user on the Product Details Page.
 
-### Product Quantity on the PDP
+### Product Quantity on the Product Details Page
 
 When a customer changes the quantity in the **Add to Cart** counter on the PDP, the selected quantity is tracked by `CartItemQuantityService` (from `@spartacus/cart/base/root`). The Quick Buy service reads this value when initiating a single-product transaction, so the correct quantity is used without requiring the product to be added to the cart first.
 
 The `CartItemQuantityService` is automatically wired up in `AddToCartComponent` and requires no additional configuration.
 
-### Enabling Pickup-In-Store for PDP Quick Buy
+### Enabling Pickup-In-Store for Quick Buy on the Product Details Page
 
 If your storefront uses the Pickup-In-Store feature, you can extend PDP Quick Buy to respect the selected pickup location. Install the optional module by adding `OpfQuickBuyPickupInStoreModule` from `@spartacus/opf/quick-buy/pickup-in-store` to your feature module imports.
 
-This module provides `OpfQuickBuyPickupInStoreSingleProductService`, which replaces the default single-product service and ensures the selected store is included in the quick-buy transaction.
+This module provides the `OpfQuickBuyPickupInStoreSingleProductService`, which replaces the default single-product service and ensures the selected store is included in the quick-buy transaction.
 
-To install using schematics, run:
+To install using schematics, run the following command:
 
 ```bash
 ng add @spartacus/opf --features=OPF-Quick-Buy-Pickup-In-Store
