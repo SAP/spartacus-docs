@@ -78,8 +78,9 @@ use different values per environment without changing code:
 SSR_ALLOWED_ORIGINS="https://my-shop.com,https://*.my-shop.com"
 ```
 
-For deployment environments where setting custom environment variables is not an
-option, hardcode the list of allowed origins directly in `server.ts` instead:
+(We don not recommended the following for single source code used to deploy multiple
+environments). For deployment environments where setting custom environment variables
+is not an option, hardcode the list of allowed origins directly in `server.ts` instead.
 
 ```ts
 server.use(
