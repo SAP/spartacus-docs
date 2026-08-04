@@ -63,6 +63,8 @@ server.use(
 );
 ```
 
+**Note:** This approach is not recommended for projects where a single source code is used to deploy multiple environments.
+
 When defining allowed origins, the following rules apply:
 
 - Each entry must be a full origin (that is, protocol and host), with no trailing slash. For example, `https://my-shop.com`
