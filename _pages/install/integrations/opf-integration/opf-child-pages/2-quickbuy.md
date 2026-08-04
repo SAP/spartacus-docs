@@ -2,7 +2,7 @@
 title: Quick Buy
 ---
 
-Quick Buy is a CMS-based feature that can display Google Pay and Apple Pay buttons on the cart page. Quick Buy allows users to easily purchase items in their cart, whether they are logged in or checking out as a guest.
+Quick Buy is a CMS-based feature that can display Google Pay and Apple Pay buttons on the cart page and the product detail page (PDP). Quick Buy allows users to easily purchase items, whether they are logged in or checking out as a guest.
 
 Starting with Spartacus version 221121.10, Quick Buy now also supports services such as PayPal. This functionality is described in [CTA Quick Buy](#cta-quick-buy), below.
 
@@ -14,11 +14,14 @@ Quick Buy functionality is added to your storefront app when you install the ope
 
 ### CMS Components
 
-Quick Buy is CMS-driven and consists of the `OpfQuickBuyButtonsComponent` component. If you are using CTA Quick Buy for services such as PayPal, CTAs are rendered through the `OpfCtaQuickBuyButtons` CMS component.
+Quick Buy is CMS-driven and uses the following components:
 
-If you are using the [Spartacus Sample Data Extension](link), the Quick Buy component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the Quick Buy CMS component manually through ImpEx.
+- `OpfQuickBuyButtonsComponent` — renders wallet payment buttons (Google Pay, Apple Pay) on the cart page and the product detail page.
+- `OpfCtaQuickBuyButtons` — renders CTA-based Quick Buy buttons (for example, PayPal) if you are using CTA Quick Buy.
 
-### Adding CMS Component Manually
+If you are using the [Spartacus Sample Data Extension](link), the Quick Buy components are already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the Quick Buy CMS components manually through ImpEx.
+
+### Adding CMS Components Manually
 
 To add all of the necessary CMS data for Quick Buy, import the following ImpEx:
 
@@ -29,6 +32,7 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
 ;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;CartTotalsComponent,CartApplyCouponComponent,CartQuickOrderFormComponent,OpfCtaQuickBuyButtons,OpfQuickBuyButtonsComponent,CartProceedToCheckoutComponent
+;;ProductSummarySlot;Product Summary Slot;ProductIntroComponent,ProductImagesComponent,ProductSummaryComponent,VariantSelector,OpfQuickBuyButtonsComponent,AddToCartComponent,ProductAvailabilityComponent
 ```
 
 **Note:** The `$contentCV` variable that is used in the above ImpEx example, and which stores information about the content catalog, is defined as follows:
@@ -127,7 +131,31 @@ provideConfig(<OpfQuickBuyConfig>{
 });
 ```
 
-For more information on providing configuration in Spartacus, see [Global Configuration in Composable Storefront](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/b547483f90a7422abf7c597b454af4b2.html?locale=en-US).
+## Quick Buy on the Product Detail Page
+
+Quick Buy wallet buttons (Google Pay and Apple Pay) can be displayed directly on the product detail page (PDP), allowing customers to complete a purchase for a single product without first adding it to the cart.
+
+When the `OpfQuickBuyButtonsComponent` is placed in a PDP content slot, Spartacus automatically uses a single-product transaction flow instead of the active-cart flow. This context-based selection is handled internally by `OpfQuickBuyTransactionService`, which delegates to either `OpfQuickBuyActiveCartTransactionService` (cart page) or `OpfQuickBuySingleProductTransactionService` (PDP) based on where the component is rendered.
+
+### Product Quantity on the PDP
+
+When a customer changes the quantity in the **Add to Cart** counter on the PDP, the selected quantity is tracked by `CartItemQuantityService` (from `@spartacus/cart/base/root`). The Quick Buy service reads this value when initiating a single-product transaction, so the correct quantity is used without requiring the product to be added to the cart first.
+
+The `CartItemQuantityService` is automatically wired up in `AddToCartComponent` and requires no additional configuration.
+
+### Enabling Pickup-In-Store for PDP Quick Buy
+
+If your storefront uses the Pickup-In-Store feature, you can extend PDP Quick Buy to respect the selected pickup location. Install the optional module by adding `OpfQuickBuyPickupInStoreModule` from `@spartacus/opf/quick-buy/pickup-in-store` to your feature module imports.
+
+This module provides `OpfQuickBuyPickupInStoreSingleProductService`, which replaces the default single-product service and ensures the selected store is included in the quick-buy transaction.
+
+To install using schematics, run:
+
+```bash
+ng add @spartacus/opf --features=OPF-Quick-Buy-Pickup-In-Store
+```
+
+The `OPF-Quick-Buy-Pickup-In-Store` feature depends on both `OPF-Quick-Buy` and `Pickup-In-Store`, so both must be installed.
 
 ## CTA Quick Buy
 
