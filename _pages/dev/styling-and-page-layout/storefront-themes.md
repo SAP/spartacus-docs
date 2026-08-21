@@ -39,6 +39,29 @@ Whether the storefront picks up the **Theme** value you set in Backoffice depend
 
 Once a theme name is resolved, the storefront's `ThemeService` applies it as a CSS class on the application's root element, reacting to changes without requiring a page reload.
 
+#### Setting the Theme Statically in Your Spartacus Configuration
+
+The `context.theme` config referenced throughout this page is a site-context parameter, set the same way as `context.language`, `context.currency`, and `context.baseSite`. You provide it through `provideConfig` (or a config module), typically alongside your other site-context settings:
+
+```ts
+// app.module.ts (or wherever you provide the Spartacus config)
+import { provideConfig, SiteContextConfig } from '@spartacus/core';
+
+provideConfig(<SiteContextConfig>{
+  context: {
+    urlParameters: ['baseSite', 'language', 'currency'],
+    baseSite: ['electronics-spa'],
+    theme: ['lambda'],
+  },
+});
+```
+
+The value is an array of strings; the storefront uses the **first** element as the active theme name. In the example above, `lambda` becomes the active theme.
+
+**Important — statically defining `context.theme` requires statically defining `context.baseSite` as well.** If `context.baseSite` is *not* set, the `SiteContextConfigInitializer` runs at startup, fetches the active base site from the CMS, and writes the base site's `theme` (along with its `baseSite`, `language`, and `currency` values) into `context`, **overwriting** your static `context.theme`. Providing a static `context.baseSite` disables that initializer, so your static values are preserved.
+
+**Also set `urlParameters` when you set `baseSite` statically.** With the initializer disabled, the `urlParameters` value (normally supplied by the base site) is no longer populated automatically. Without it, the site-context parameters (such as `baseSite`, `language`, and `currency`) are dropped from the URL, which breaks routing (for example, `/electronics-spa/en/USD/` no longer resolves). Setting `urlParameters: ['baseSite', 'language', 'currency']` restores the expected URL structure.
+
 #### With `applyBaseSiteThemeFromCms: false` (default)
 
 The CMS `theme` field is only honored through the standard site-context resolution. In practice this means:
