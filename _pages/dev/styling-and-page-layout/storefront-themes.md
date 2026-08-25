@@ -6,95 +6,24 @@ feature:
   cx_version: n/a
 ---
 
-Spartacus includes two storefront themes, Sparta and Santorini. Each theme features distinct font sizes and colours. The Sparta theme features red colors and fonts, while the Santorini theme features blue colors and fonts. The Sparta theme is enabled by default, but you can dynamically switch to the Santorini theme at any time, as described in the procedure below.
+Spartacus includes three storefront themes: the Santorini theme, and the legacy Sparta and Lambda themes. As a result of changes to the underlying HTML in the 6.0 release, the Sparta and Lambda themes are no longer compatible with composable storefront. Also, the Sparta and Lambda storefront themes have been deprecated and will be removed in a future major release.
 
-The following is an example of a Spartacus product page with the Santorini theme enabled:
+The Santorini theme is enabled by default, but you can dynamically switch to another theme at any time, as described below.
 
-<img src="{{ site.baseurl }}/assets/images/santorini-product-page.png" alt="Santorini Theme Spartacus Home Page" width="750" border="1px" />
+**Note:** The information on this page applies to Spartacus version 221121.17 or later.
 
-## Changing the Storefront Theme Dynamically
+Applying a theme to the storefront involves two independent elements:
 
-Applying a theme involves two independent layers:
+- A theme name, which is a string (such as `my-theme`) that the storefront resolves at runtime and applies as a CSS class on the application's root element.
+- The related theme styles, which are the CSS properties (such as `--cx-color-primary`) that are scoped to a class matching the theme name.
 
-- **The theme name** — a string (for example, `santorini`) that the storefront resolves at runtime and applies as a CSS class on the application's root element. This is a purely runtime concern.
-- **The theme styles** — the CSS custom properties (for example, `--cx-color-primary`) scoped to a class matching that name. This is a purely styling concern.
+These elements work together. To dynamically change a storefront theme, the target theme name must be defined, along with the styles that apply to that theme name.
 
-These layers are independent: setting a theme name does not create any styling, and defining styles does not activate them until a matching theme name becomes active. The sections below describe each layer.
+## Providing the Theme Styles
 
-### Setting the Theme Name in Backoffice
+To change the storefront's appearance with a different theme, define a CSS class with a theme name that will be used by the storefront at runtime to resolve which CSS properties to apply to the storefront. It is also possible to override an existing theme by providing custom CSS properties for the existing theme.
 
-1. Log in to Backoffice and click **WCMS -> Website**.
-
-1. Select the Spartacus site whose theme you are changing (for example, the Spartacus Electronics Site).
-
-1. In the **Properties** panel that appears, scroll down to **Base Configuration**, and in the **Theme** dropdown list, select a new theme, such as **Santorini**.
-
-1. Click **Save**.
-
-Changing this value in Backoffice does not, on its own, change the storefront. Whether the value is picked up depends on the runtime configuration described in the next section.
-
-### How the Theme Name Reaches the Storefront
-
-Whether the storefront picks up the **Theme** value you set in Backoffice depends on the `applyBaseSiteThemeFromCms` feature toggle. It is `false` by default.
-
-Once a theme name is resolved, the storefront's `ThemeService` applies it as a CSS class on the application's root element, reacting to changes without requiring a page reload.
-
-#### Setting the Theme Statically in Your Spartacus Configuration
-
-The `context.theme` config referenced throughout this page is a site-context parameter, set the same way as `context.language`, `context.currency`, and `context.baseSite`. You provide it through `provideConfig` (or a config module), typically alongside your other site-context settings:
-
-```ts
-// app.module.ts (or wherever you provide the Spartacus config)
-import { provideConfig, SiteContextConfig } from '@spartacus/core';
-
-provideConfig(<SiteContextConfig>{
-  context: {
-    urlParameters: ['baseSite', 'language', 'currency'],
-    baseSite: ['electronics-spa'],
-    theme: ['lambda'],
-  },
-});
-```
-
-The value is an array of strings; the storefront uses the **first** element as the active theme name. In the example above, `lambda` becomes the active theme.
-
-**Important — statically defining `context.theme` requires statically defining `context.baseSite` as well.** If `context.baseSite` is *not* set, the `SiteContextConfigInitializer` runs at startup, fetches the active base site from the CMS, and writes the base site's `theme` (along with its `baseSite`, `language`, and `currency` values) into `context`, **overwriting** your static `context.theme`. Providing a static `context.baseSite` disables that initializer, so your static values are preserved.
-
-**Also set `urlParameters` when you set `baseSite` statically.** With the initializer disabled, the `urlParameters` value (normally supplied by the base site) is no longer populated automatically. Without it, the site-context parameters (such as `baseSite`, `language`, and `currency`) are dropped from the URL, which breaks routing (for example, `/electronics-spa/en/USD/` no longer resolves). Setting `urlParameters: ['baseSite', 'language', 'currency']` restores the expected URL structure.
-
-#### With `applyBaseSiteThemeFromCms: false` (default)
-
-The CMS `theme` field is only honored through the standard site-context resolution. In practice this means:
-
-- If you set the theme statically in your Spartacus configuration (`context.theme`), that value is used.
-- The `theme` field from the base site is resolved dynamically from the CMS **only** when `context.baseSite` is *not* statically configured (so that `SiteContextConfigInitializer` runs and fetches the base site).
-
-In the common setup where `context.baseSite` is statically configured, the CMS **Theme** dropdown value is ignored, and only a statically configured `context.theme` (or a theme picked through the Theme Switcher) takes effect. Changing the Backoffice dropdown has no visible effect in this case.
-
-#### With `applyBaseSiteThemeFromCms: true`
-
-The storefront's active theme follows the `theme` field of the active base site, reacting to base site changes at runtime — even when `context.baseSite` is statically configured (unless a static `context.theme` is set, which always wins; see the precedence below). Enable it in your feature toggles:
-
-```ts
-// app.module.ts (or wherever you provide the Spartacus config)
-provideConfig({
-  featureToggles: {
-    applyBaseSiteThemeFromCms: true,
-  },
-});
-```
-
-The active theme is resolved with the following precedence:
-
-1. A statically configured `context.theme` — explicit developer intent, never overridden.
-1. A theme the user picks through the Theme Switcher (from `siteTheme.optionalThemes`, such as high-contrast) — preserved.
-1. Otherwise, the `BaseSite.theme` value from the CMS is applied.
-
-### Providing the Theme Styles
-
-Resolving a theme name only adds a CSS class to the root element; it does not provide any styling. To actually change the storefront's appearance, define a CSS class matching the theme name that overrides the theme's CSS custom properties.
-
-In your application, create a CSS file (for example, `cms-themes.scss`) and import it in your `styles.scss` **after** the main Spartacus styles import so that the custom properties override the defaults:
+In your application, create a CSS file (for example, `cms-themes.scss`) and import it in your `styles.scss` after the main Spartacus styles import. It is important that your `cms-themes.scss` comes after the main Spartacus styles import, so that if you are overriding an existing theme (such as the Santorini theme, for example), your custom properties will override the defaults. The following is an example:
 
 ```scss
 // styles.scss
@@ -104,7 +33,7 @@ In your application, create a CSS file (for example, `cms-themes.scss`) and impo
 @import 'cms-themes';
 ```
 
-The `cms-themes.scss` file defines the theme colors using CSS custom properties scoped to the theme class:
+The `cms-themes.scss` file defines the theme colors using custom CSS properties that are scoped to the theme class. The following is an example:
 
 ```scss
 // cms-themes.scss
@@ -115,12 +44,71 @@ The `cms-themes.scss` file defines the theme colors using CSS custom properties 
 }
 ```
 
-**Note:** The theme name is applied as a CSS class regardless of whether matching styles exist. If a theme name becomes active but no corresponding CSS class is defined, the class is present on the root element but overrides nothing, so the storefront falls back to the default theme values defined on `:root`. No error occurs — this simply looks like the default theme.
+If you are defining a new theme, your `cms-themes.scss` file might look something like the following:
 
-## Configuring
+```scss
+// cms-themes.scss
+.my-theme {
+  --cx-color-primary: #059f2e;
+  --cx-color-secondary: #210ec6;
+  // ... other color tokens
+}
+```
 
-No special configuration is needed.
+**Note:** The theme name is applied as a CSS class regardless of whether matching styles exist. If a theme name becomes active but no corresponding CSS class is defined, the class is present on the root element, but it overrides nothing, so the storefront falls back to the default theme values defined on `:root`. No error occurs - this simply looks like the default theme.
 
-## Extending
+## Setting the Theme Name in Backoffice
 
-No special extensibility is available for this feature.
+1. Log in to Backoffice and click **WCMS -> Website**.
+
+1. Select the Spartacus site whose theme you are changing (for example, the Spartacus Electronics Site).
+
+1. In the **Properties** panel that appears, scroll down to **Base Configuration**, and in the **Theme** dropdown list, select a new theme, such as **My-Theme**.
+
+1. Click **Save**.
+
+Changing this value in Backoffice does not, on its own, change the storefront theme. Whether the value is picked up depends on the runtime configuration described in the next section.
+
+## Configuring How the Theme Name Reaches the Storefront
+
+Whether the storefront picks up the **Theme** value that you set in Backoffice depends on the `applyBaseSiteThemeFromCms` feature toggle. If you have installed a new storefront app that is version 221121.17 or later, the `applyBaseSiteThemeFromCms` feature toggle is enabled by default. If you have updated to Spartacus version 221121.17 or later, it is important to enable the `applyBaseSiteThemeFromCms` feature toggle. For more information, see [Activating Apply Base Site Theme From CMS](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/10a8bc7f635b4e3db6f6bb7880e58a7d/ef882ed019f544ceb26a1527ccb7c245.html?locale=en-US).
+
+When the `applyBaseSiteThemeFromCms` feature toggle is enabled, the storefront's active theme follows the `theme` field of the active base site, reacting to base site changes at runtime, even when `context.baseSite` is statically configured - unless a static `context.theme` is set, which always wins.
+
+The active theme is resolved with the following precedence:
+
+1. A statically configured `context.theme`, which is provided with explicit developer intent, and is never overridden.
+1. If the `context.theme` is not statically configured, a theme that the user picks through the Theme Switcher is preserved (from `siteTheme.optionalThemes`, such as high-contrast).
+1. Otherwise, the `BaseSite.theme` value from the CMS is applied.
+
+Once a theme name is resolved, the storefront's `ThemeService` applies it as a CSS class on the application's root element, reacting to changes without requiring a page reload.
+
+If the `applyBaseSiteThemeFromCms` feature toggle is not enabled, the CMS `theme` field is only honored through the standard site-context resolution. In practice this means the following:
+
+- If you set the theme statically in your Spartacus configuration (`context.theme`), that value is used.
+- The `theme` field from the base site is resolved dynamically from the CMS **only** when `context.baseSite` is **not** statically configured (so that `SiteContextConfigInitializer` runs and fetches the base site).
+
+In the common setup where `context.baseSite` is statically configured, the CMS **Theme** dropdown value is ignored, and only a statically configured `context.theme` (or a theme picked through the Theme Switcher) takes effect. Changing the Backoffice **Theme** dropdown has no visible effect in this case.
+
+## Setting the Theme Statically in Your Spartacus Configuration
+
+The `context.theme` config is a site-context parameter, and it is set in the same way as `context.language`, `context.currency`, and `context.baseSite`. You provide it through `provideConfig` (or a config module), typically alongside your other site-context settings. The following is an example:
+
+```ts
+// spartacus-features.module.ts (or wherever you provide the Spartacus config)
+import { provideConfig, SiteContextConfig } from '@spartacus/core';
+
+provideConfig(<SiteContextConfig>{
+  context: {
+    urlParameters: ['baseSite', 'language', 'currency'],
+    baseSite: ['electronics-spa'],
+    theme: ['my-theme'],
+  },
+});
+```
+
+The value is an array of strings, and the storefront uses the first element as the active theme name. In the example above, `my-theme` becomes the active theme.
+
+**Note:** Statically defining `context.theme` requires you to also statically define `context.baseSite`. If `context.baseSite` is not set, the `SiteContextConfigInitializer` runs at startup, fetches the active base site from the CMS, and writes the base site's `theme` (along with its `baseSite`, `language`, and `currency` values) into `context`, which **overwrites** your static `context.theme`. Providing a static `context.baseSite` disables that initializer, so your static values are preserved.
+
+**Note:** It is also highly recommended that you set `urlParameters` when you set `baseSite` statically. With the initializer disabled, the `urlParameters` value (normally supplied by the base site) is no longer populated automatically. Without it, the site-context parameters (such as `baseSite`, `language`, and `currency`) are dropped from the URL, which breaks routing. For example, a route such as `/electronics-spa/en/USD/` would no longer resolve. Setting `urlParameters: ['baseSite', 'language', 'currency']` restores the expected URL structure.
