@@ -10,8 +10,6 @@ Spartacus includes three storefront themes: the Santorini theme, and the legacy 
 
 The Santorini theme is enabled by default, but you can dynamically switch to another theme at any time, as described below.
 
-**Note:** The information on this page applies to Spartacus version 221121.17 or later.
-
 Applying a theme to the storefront involves two independent elements:
 
 - A theme name, which is a string (such as `my-theme`) that the storefront resolves at runtime and applies as a CSS class on the application's root element.
@@ -19,11 +17,15 @@ Applying a theme to the storefront involves two independent elements:
 
 These elements work together. To dynamically change a storefront theme, the target theme name must be defined, along with the styles that apply to that theme name.
 
+## Prerequisites
+
+In Spartacus version 221121.17, the `applyBaseSiteThemeFromCms` feature toggle has been introduced to improve how the storefront handles changing the storefront theme. To take advantage of this update, you must be using version 221121.17 or later of the Spartacus libraries, and have the `applyBaseSiteThemeFromCms` feature toggle enabled. If the toggle is not enabled, your app maintains the same behavior as Spartacus apps from version 221121.15 or earlier. For more information, see [Configuring How the Theme Name Reaches the Storefront](#configuring-how-the-theme-name-reaches-the-storefront), below.
+
 ## Providing the Theme Styles
 
-To change the storefront's appearance with a different theme, define a CSS class with a theme name that will be used by the storefront at runtime to resolve which CSS properties to apply to the storefront. It is also possible to override an existing theme by providing custom CSS properties for the existing theme.
+To change the storefront's appearance, you must first define a CSS class that matches an existing theme name. This class is used to override the theme's existing CSS properties.
 
-In your application, create a CSS file (for example, `cms-themes.scss`) and import it in your `styles.scss` after the main Spartacus styles import. It is important that your `cms-themes.scss` comes after the main Spartacus styles import, so that if you are overriding an existing theme (such as the Santorini theme, for example), your custom properties will override the defaults. The following is an example:
+To do this, create a CSS file in your application (for example, `cms-themes.scss`) and import it in your `styles.scss` after the main Spartacus styles import. It is important that your `cms-themes.scss` comes after the main Spartacus styles import, so that your custom properties override the defaults. The following is an example:
 
 ```scss
 // styles.scss
@@ -40,17 +42,6 @@ The `cms-themes.scss` file defines the theme colors using custom CSS properties 
 .santorini {
   --cx-color-primary: #055f9f;
   --cx-color-secondary: #556b82;
-  // ... other color tokens
-}
-```
-
-If you are defining a new theme, your `cms-themes.scss` file might look something like the following:
-
-```scss
-// cms-themes.scss
-.my-theme {
-  --cx-color-primary: #059f2e;
-  --cx-color-secondary: #210ec6;
   // ... other color tokens
 }
 ```
@@ -83,7 +74,7 @@ The active theme is resolved with the following precedence:
 
 Once a theme name is resolved, the storefront's `ThemeService` applies it as a CSS class on the application's root element, reacting to changes without requiring a page reload.
 
-If the `applyBaseSiteThemeFromCms` feature toggle is not enabled, the CMS `theme` field is only honored through the standard site-context resolution. In practice this means the following:
+If the `applyBaseSiteThemeFromCms` feature toggle is not enabled, or you are working with a storefront app that is version 221121.15 or earlier, the CMS `theme` field is only honored through the standard site-context resolution. In practice this means the following:
 
 - If you set the theme statically in your Spartacus configuration (`context.theme`), that value is used.
 - The `theme` field from the base site is resolved dynamically from the CMS **only** when `context.baseSite` is **not** statically configured (so that `SiteContextConfigInitializer` runs and fetches the base site).
