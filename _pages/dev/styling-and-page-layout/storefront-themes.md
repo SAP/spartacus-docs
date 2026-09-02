@@ -6,9 +6,7 @@ feature:
   cx_version: n/a
 ---
 
-Spartacus includes three storefront themes: the Santorini theme, and the legacy Sparta and Lambda themes. As a result of changes to the underlying HTML in the 6.0 release, the Sparta and Lambda themes are no longer compatible with composable storefront. Also, the Sparta and Lambda storefront themes have been deprecated and will be removed in a future major release.
-
-The Santorini theme is enabled by default, but you can dynamically switch to another theme at any time, as described below.
+Spartacus includes the Santorini storefront theme, which is enabled by default. However, you can dynamically switch to another theme at any time, as described below.
 
 Applying a theme to the storefront involves two independent elements:
 
