@@ -183,6 +183,7 @@ provideConfig(<OpfConfig>{
   opf: {
     opfBaseUrl: '<URL TO COMMERCE CLOUD ADAPTER>',
     commerceCloudPublicKey: '<COMMERCE CLOUD PUBLIC KEY>',
+    enableGetActiveConfigurationsAccessCodeHeader: true,
   },
 }),
 ```
@@ -191,6 +192,7 @@ The configuration properties are described as follows:
 
 - `opfBaseUrl` is the URL to the Commerce Cloud Adapter.
 - `commerceCloudPublicKey` is the public key provided by open payment framework. It is used by Commerce Cloud Adapter to establish a connection to the correct SAP Commerce Cloud configuration.
+- `enableGetActiveConfigurationsAccessCodeHeader` controls whether a cart access code is generated and sent as the `sap-commerce-cloud-access-code` header on the `getActiveConfigurations` request. Sending this header is required for Intelligent Routing to function correctly on the backend. The default value is `true`.
 
 For more information, see [Set up Connection with SAP Commerce Cloud Adapter](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/feb92426c3044e5eab67059795b5c14d.html?locale=en-US#set-up-connection-with-sap-commerce-cloud-adapter).
 
