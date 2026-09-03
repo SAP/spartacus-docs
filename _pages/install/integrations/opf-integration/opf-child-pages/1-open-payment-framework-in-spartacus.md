@@ -14,16 +14,17 @@ Open payment framework provides the following parameters when you use schematics
 
 - `--opfBaseUrl`
 - `--commerceCloudPublicKey`
+- `--enableGetActiveConfigurationsAccessCodeHeader`
 
 The following is an example of installing the `opf` library using schematics with these parameters:
 
 ```bash
-ng add @spartacus/opf --opfBaseUrl=https://my_opf_server --commerceCloudPublicKey=my_public_key_value
+ng add @spartacus/opf --opfBaseUrl=https://my_opf_server --commerceCloudPublicKey=my_public_key_value --enableGetActiveConfigurationsAccessCodeHeader=true
 ```
 
-If you do not define the parameters, the value for each undefined parameter is set with a placeholder.
+If you do not define `--opfBaseUrl` or `--commerceCloudPublicKey`, the value for each undefined parameter is set with a placeholder. The `--enableGetActiveConfigurationsAccessCodeHeader` parameter defaults to `true` if not specified.
 
-For more information about `--opfBaseUrl` and `--commerceCloudPublicKey`, see [Configuring Open Payment Framework Core Functionality](#configuring-open-payment-framework-core-functionality).
+For more information about `--opfBaseUrl`, `--commerceCloudPublicKey`and `--enableGetActiveConfigurationsAccessCodeHeader` see [Configuring Open Payment Framework Core Functionality](#configuring-open-payment-framework-core-functionality).
 
 ## CMS Components
 
