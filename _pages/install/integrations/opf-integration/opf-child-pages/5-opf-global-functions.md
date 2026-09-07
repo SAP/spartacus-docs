@@ -72,6 +72,7 @@ The following table provides descriptions and usage examples of the global domai
 | `verifyPayment` | Verifies a payment session with the provided verification payload | `function verifyPayment( paymentSessionId: string, paymentVerificationPayload: OpfPaymentVerificationPayload ): Promise<OpfPaymentVerificationResponse>` | `window.Opf.payments.global.verifyPayment('session-123', {` <br> `// verification payload data` <br> `}).then(response => { console.log('Verification response:', response); });` |
 | `submit` | Manages the `/gateway/submit` call for the global domain, which triggers a callbacks workflow in JavaScript | `function submit({ cartId?: string, additionalData: Array<OpfKeyValueMap>, submitSuccess: OpfPaymentMerchantCallback = noop, submitPending: OpfPaymentMerchantCallback = noop, submitFailure: OpfPaymentMerchantCallback = noop, submitCancel?: OpfPaymentMerchantCallback, paymentMethod: OpfPaymentMethod, paymentSessionId?: string }): Promise<boolean>` | `window.Opf.payments.global.submit({ cartId: 'cart-123', additionalData: [{key: 'returnUrl', value: 'https://returnUrl/'}], submitSuccess: (response) => console.log('Success:', response), submitPending: (response) => console.log('Pending:', response), submitFailure: (response) => console.log('Failed:', response), submitCancel: (response) => console.log('Cancelled:', response), paymentMethod: 'APPLE_PAY', paymentSessionId: 'session-456' });` |
 | `submitComplete` | Manages the `/gateway/submit-complete` call for the global domain, which triggers a callbacks workflow in JavaScript | `function submitComplete({ cartId?: string, additionalData: Array<OpfKeyValueMap>, submitSuccess: OpfPaymentMerchantCallback = noop, submitPending: OpfPaymentMerchantCallback = noop, submitFailure: OpfPaymentMerchantCallback = noop, submitCancel?: OpfPaymentMerchantCallback, paymentSessionId?: string }): Promise<boolean>` | `window.Opf.payments.global.submitComplete({ cartId: 'cart-123', additionalData: [{key: 'returnUrl', value: 'https://returnUrl/'}], submitSuccess: (response) => console.log('Complete success:', response), submitPending: (response) => console.log('Complete pending:', response), submitFailure: (response) => console.log('Complete failed:', response), submitCancel: (response) => console.log('Complete cancelled:', response), paymentSessionId: 'session-456' });` |
+| `getApplePayWebSession` | Requests an Apple Pay merchant session from the backend by sending a verification request. Returns the validated session object required to complete the Apple Pay session initialization in the browser. | `function getApplePayWebSession(request: ApplePaySessionVerificationRequest): Promise<ApplePaySessionVerificationResponse>` where `ApplePaySessionVerificationRequest` is `{ validationUrl: string; initiative: string; initiativeContext: string; }` and `ApplePaySessionVerificationResponse` is `{ epochTimestamp: number; expiresAt: number; merchantSessionIdentifier: string; nonce: string; merchantIdentifier: string; domainName: string; displayName: string; signature: string; }` | `window.Opf.payments.global.getApplePayWebSession({ validationUrl: 'https://apple-pay-gateway.apple.com/paymentservices/startSession', initiative: 'web', initiativeContext: 'yourstore.example.com' }).then(session => { applePaySession.completeMerchantValidation(session); });` |
 
 ## Working With Open Payment Framework Global Functions
 
@@ -286,6 +287,25 @@ window.Opf.payments.global.verifyPayment('session-123', {
 }).then(response => {
   console.log('Verification result:', response);
 });
+```
+
+This is an example of working with Apple Pay web session verification:
+
+```ts
+// During Apple Pay session initialization, complete merchant validation
+// by requesting a verified session from the backend
+applePaySession.onvalidatemerchant = (event) => {
+  window.Opf.payments.global.getApplePayWebSession({
+    validationUrl: event.validationURL,
+    initiative: 'web',
+    initiativeContext: window.location.hostname
+  }).then(session => {
+    applePaySession.completeMerchantValidation(session);
+  }).catch(error => {
+    console.error('Merchant validation failed:', error);
+    applePaySession.abort();
+  });
+};
 ```
 
 ## Cancel Callback Scenario
