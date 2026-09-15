@@ -9,6 +9,7 @@ feature:
 The `AuthConfigInitializer` is a `ConfigInitializer` that allows you to adjust the runtime configuration of the Spartacus auth configuration. The default implementation handles the following two runtime adjustments to the static auth configuration:
 
 - Changes the default redirect URL to include the base site URL context parameter
+  - Starting in version 221121.19.0, this logic has been expanded for improved configuration convenience. See [OAuth Callback Page](oauth-callback-page.md) for more details.
 - Adds the base site as a suffix to the configured client ID
 
 These behaviors can be independently controlled through the `AuthConfig.authentication.initializerOptions` object. They may be explicitly enabled or disabled using a boolean value, or set to `auto` to make the initializer only apply changes when relevant.
