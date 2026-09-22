@@ -32,7 +32,7 @@ The following table provides descriptions and usage examples of the checkout dom
 | Function | Description | Interface | Usage Example |
 | --- | --- | --- | --- |
 | `submit` | Manages the `/gateway/submit` call for `HOSTED_FIELDS` open payment framework, which triggers a callbacks workflow in JavaScript | `function submit({ cartId?: string, additionalData: Array<OpfKeyValueMap>, submitSuccess: OpfPaymentMerchantCallback = noop, submitPending: OpfPaymentMerchantCallback = noop, submitFailure: OpfPaymentMerchantCallback = noop, submitCancel?: OpfPaymentMerchantCallback, paymentMethod: OpfPaymentMethod, paymentSessionId?: string }): Promise<boolean>` | `window.Opf.payments.checkout.submit({ cartId: 'cart-123', additionalData: [{key: 'returnUrl', value: 'https://returnUrl/'}], submitSuccess: (response) => console.log('Success:', response), submitPending: (response) => console.log('Pending:', response), submitFailure: (response) => console.log('Failed:', response), submitCancel: (response) => console.log('Cancelled:', response), paymentMethod: 'APPLE_PAY' });` |
-| `submitComplete` | Manages the `/gateway/submit-complete` call for `HOSTED_FIELDS` open payment framework, which triggers a callbacks workflow in JavaScript | `function submitComplete({ cartId?: string, additionalData: Array<OpfKeyValueMap>, submitSuccess: OpfPaymentMerchantCallback = noop, submitPending: OpfPaymentMerchantCallback = noop, submitFailure: OpfPaymentMerchantCallback = noop, submitCancel?: OpfPaymentMerchantCallback, paymentSessionId?: string }): Promise<boolean>` | `window.Opf.payments.checkout.submitComplete({ cartId: 'cart-123', additionalData: [{key: 'returnUrl', value: 'https://returnUrl/'}], submitSuccess: (response) => console.log('Complete success:', response), submitPending: (response) => console.log('Complete pending:', response), submitFailure: (response) => console.log('Complete failed:', response), submitCancel: (response) => console.log('Complete cancelled:', response) });` |
+| `submitComplete` | Manages the `/gateway/submit-complete` call for `HOSTED_FIELDS` open payment framework, which triggers a callbacks workflow in JavaScript | `function submitComplete({ cartId?: string, additionalData: Array<OpfKeyValueMap>, submitSuccess: OpfPaymentMerchantCallback = noop, submitPending: OpfPaymentMerchantCallback = noop, submitFailure: OpfPaymentMerchantCallback = noop, submitCancel?: OpfPaymentMerchantCallback, paymentSessionId?: string, savePaymentMethod?: boolean }): Promise<boolean>` | `window.Opf.payments.checkout.submitComplete({ cartId: 'cart-123', additionalData: [{key: 'returnUrl', value: 'https://returnUrl/'}], submitSuccess: (response) => console.log('Complete success:', response), submitPending: (response) => console.log('Complete pending:', response), submitFailure: (response) => console.log('Complete failed:', response), submitCancel: (response) => console.log('Complete cancelled:', response), savePaymentMethod: true });` |
 | `throwPaymentError` | Displays a payment error dialog with customizable options | `function throwPaymentError( opfErrorDialogOptions?: OpfErrorDialogOptions ): void` | `window.Opf.payments.checkout.throwPaymentError({ title: 'Payment Error', message: 'An error occurred during payment processing' });` |
 | `startLoadIndicator` | Starts a loading spinner overlay to indicate processing | `function startLoadIndicator(): void` | `window.Opf.payments.checkout.startLoadIndicator();` |
 | `stopLoadIndicator` | Stops the loading spinner overlay | `function stopLoadIndicator(): void` | `window.Opf.payments.checkout.stopLoadIndicator();` |
@@ -44,7 +44,8 @@ The following table provides descriptions and usage examples of the redirect dom
 
 | Function | Description | Interface | Usage Example |
 | --- | --- | --- | --- |
-| `submitCompleteRedirect` | Manages the `/gateway/submit-complete` call for redirect-based payment flows with automatic redirect to the checkout review page | `function submitCompleteRedirect({ cartId: string, additionalData: Array<OpfKeyValueMap>, submitSuccess: OpfPaymentMerchantCallback = noop, submitPending: OpfPaymentMerchantCallback = noop, submitFailure: OpfPaymentMerchantCallback = noop, submitCancel?: OpfPaymentMerchantCallback }): Promise<boolean>` | `window.Opf.payments.redirect.submitCompleteRedirect({ cartId: 'cart-123', additionalData: [{key: 'returnUrl', value: 'https://returnUrl/'}], submitSuccess: (response) => console.log('Redirect success:', response), submitPending: (response) => console.log('Redirect pending:', response), submitFailure: (response) => console.log('Redirect failed:', response), submitCancel: (response) => console.log('Redirect cancelled:', response) });` |
+| `submit` | Manages the `/gateway/submit` call in after-redirect scripts, enabling payment flows where authentication bypasses the standard submit step (for example, Paymetric 3DS). Previously, only `submitCompleteRedirect` was available in after-redirect scripts. | `function submit({ cartId?: string, additionalData: Array<OpfKeyValueMap>, submitSuccess: OpfPaymentMerchantCallback = noop, submitPending: OpfPaymentMerchantCallback = noop, submitFailure: OpfPaymentMerchantCallback = noop, submitCancel?: OpfPaymentMerchantCallback, paymentMethod: OpfPaymentMethod, paymentSessionId?: string }): Promise<boolean>` | `window.Opf.payments.redirect.submit({ cartId: 'cart-123', additionalData: [{key: 'returnUrl', value: 'https://returnUrl/'}], submitSuccess: (response) => console.log('Success:', response), submitPending: (response) => console.log('Pending:', response), submitFailure: (response) => console.log('Failed:', response), submitCancel: (response) => console.log('Cancelled:', response), paymentMethod: 'CREDIT_CARD', paymentSessionId: 'session-456' });` |
+| `submitCompleteRedirect` | Manages the `/gateway/submit-complete` call for redirect-based payment flows with automatic redirect to the checkout review page | `function submitCompleteRedirect({ additionalData: Array<OpfKeyValueMap>, submitSuccess: OpfPaymentMerchantCallback = noop, submitPending: OpfPaymentMerchantCallback = noop, submitFailure: OpfPaymentMerchantCallback = noop, submitCancel?: OpfPaymentMerchantCallback, savePaymentMethod?: boolean }): Promise<boolean>` | `window.Opf.payments.redirect.submitCompleteRedirect({ additionalData: [{key: 'returnUrl', value: 'https://returnUrl/'}], submitSuccess: (response) => console.log('Redirect success:', response), submitPending: (response) => console.log('Redirect pending:', response), submitFailure: (response) => console.log('Redirect failed:', response), submitCancel: (response) => console.log('Redirect cancelled:', response), savePaymentMethod: true });` |
 | `getRedirectParams` | Retrieves redirect parameters that were configured during function registration | `function getRedirectParams(): Array<OpfKeyValueMap>` | `const redirectParams = window.Opf.payments.redirect.getRedirectParams(); console.log('Redirect params:', redirectParams);` |
 
 ## Global Domain Functions
@@ -71,7 +72,7 @@ The following table provides descriptions and usage examples of the global domai
 | `updatePaymentTransaction` | Updates an existing payment session context. This function is intended for subsequent updates after a session has been created with the provided payment session ID and configuration ID. | `function updatePaymentTransaction(updatePaymentConfig:OpfPaymentUpdateConfig):Promise<OpfPaymentSessionData>` | `window.Opf.payments.global.updatePaymentTransaction({ paymentSessionld: 'session-456', config: { ... }}).then(sessionData => { console.log('Updated session:', sessionData); });` |
 | `verifyPayment` | Verifies a payment session with the provided verification payload | `function verifyPayment( paymentSessionId: string, paymentVerificationPayload: OpfPaymentVerificationPayload ): Promise<OpfPaymentVerificationResponse>` | `window.Opf.payments.global.verifyPayment('session-123', {` <br> `// verification payload data` <br> `}).then(response => { console.log('Verification response:', response); });` |
 | `submit` | Manages the `/gateway/submit` call for the global domain, which triggers a callbacks workflow in JavaScript | `function submit({ cartId?: string, additionalData: Array<OpfKeyValueMap>, submitSuccess: OpfPaymentMerchantCallback = noop, submitPending: OpfPaymentMerchantCallback = noop, submitFailure: OpfPaymentMerchantCallback = noop, submitCancel?: OpfPaymentMerchantCallback, paymentMethod: OpfPaymentMethod, paymentSessionId?: string }): Promise<boolean>` | `window.Opf.payments.global.submit({ cartId: 'cart-123', additionalData: [{key: 'returnUrl', value: 'https://returnUrl/'}], submitSuccess: (response) => console.log('Success:', response), submitPending: (response) => console.log('Pending:', response), submitFailure: (response) => console.log('Failed:', response), submitCancel: (response) => console.log('Cancelled:', response), paymentMethod: 'APPLE_PAY', paymentSessionId: 'session-456' });` |
-| `submitComplete` | Manages the `/gateway/submit-complete` call for the global domain, which triggers a callbacks workflow in JavaScript | `function submitComplete({ cartId?: string, additionalData: Array<OpfKeyValueMap>, submitSuccess: OpfPaymentMerchantCallback = noop, submitPending: OpfPaymentMerchantCallback = noop, submitFailure: OpfPaymentMerchantCallback = noop, submitCancel?: OpfPaymentMerchantCallback, paymentSessionId?: string }): Promise<boolean>` | `window.Opf.payments.global.submitComplete({ cartId: 'cart-123', additionalData: [{key: 'returnUrl', value: 'https://returnUrl/'}], submitSuccess: (response) => console.log('Complete success:', response), submitPending: (response) => console.log('Complete pending:', response), submitFailure: (response) => console.log('Complete failed:', response), submitCancel: (response) => console.log('Complete cancelled:', response), paymentSessionId: 'session-456' });` |
+| `submitComplete` | Manages the `/gateway/submit-complete` call for the global domain, which triggers a callbacks workflow in JavaScript | `function submitComplete({ cartId?: string, additionalData: Array<OpfKeyValueMap>, submitSuccess: OpfPaymentMerchantCallback = noop, submitPending: OpfPaymentMerchantCallback = noop, submitFailure: OpfPaymentMerchantCallback = noop, submitCancel?: OpfPaymentMerchantCallback, paymentSessionId?: string, savePaymentMethod?: boolean }): Promise<boolean>` | `window.Opf.payments.global.submitComplete({ cartId: 'cart-123', additionalData: [{key: 'returnUrl', value: 'https://returnUrl/'}], submitSuccess: (response) => console.log('Complete success:', response), submitPending: (response) => console.log('Complete pending:', response), submitFailure: (response) => console.log('Complete failed:', response), submitCancel: (response) => console.log('Complete cancelled:', response), paymentSessionId: 'session-456', savePaymentMethod: true });` |
 | `getApplePayWebSession` | Requests an Apple Pay merchant session from the back end by sending a verification request. Returns the validated session object that is required to complete the Apple Pay session initialization in the browser. | `function getApplePayWebSession(request: ApplePaySessionVerificationRequest): Promise<ApplePaySessionVerificationResponse>` where `ApplePaySessionVerificationRequest` is `{ validationUrl: string; initiative: string; initiativeContext: string; }` and `ApplePaySessionVerificationResponse` is `{ epochTimestamp: number; expiresAt: number; merchantSessionIdentifier: string; nonce: string; merchantIdentifier: string; domainName: string; displayName: string; signature: string; }` | `window.Opf.payments.global.getApplePayWebSession({ validationUrl: 'https://apple-pay-gateway.apple.com/paymentservices/startSession', initiative: 'web', initiativeContext: 'yourstore.example.com' }).then(session => { applePaySession.completeMerchantValidation(session); });` |
 
 ## Working With Open Payment Framework Global Functions
@@ -128,7 +129,8 @@ window.Opf.payments.checkout.submitComplete({
     console.log('Payment completion cancelled:', response);
     // Handle cancellation by redirecting to payment selection
     window.location.href = '/checkout/payment';
-  }
+  },
+  savePaymentMethod: true
 });
 ```
 
@@ -136,7 +138,6 @@ This is an example of using the `submitCompleteRedirect` function with all of th
 
 ```ts
 window.Opf.payments.redirect.submitCompleteRedirect({
-  cartId: 'current-cart-id',
   additionalData: [
     { key: 'returnUrl', value: 'https://returnUrl/' },
     { key: 'allow3DS2', value: 'true' }
@@ -154,7 +155,35 @@ window.Opf.payments.redirect.submitCompleteRedirect({
     console.log('Redirect payment completion cancelled:', response);
     // Handle cancellation for redirect flows
     window.location.href = '/checkout/review';
-  }
+  },
+  savePaymentMethod: true
+});
+```
+
+This is an example of using the redirect `submit` function to manage the `/gateway/submit` call in redirect-based payment flows:
+
+```ts
+window.Opf.payments.redirect.submit({
+  cartId: 'current-cart-id',
+  additionalData: [
+    { key: 'returnUrl', value: 'https://returnUrl/' },
+    { key: 'allow3DS2', value: 'true' }
+  ],
+  submitSuccess: (response) => {
+    console.log('Payment successful:', response);
+  },
+  submitPending: (response) => {
+    console.log('Payment pending:', response);
+  },
+  submitFailure: (response) => {
+    console.log('Payment failed:', response);
+  },
+  submitCancel: (response) => {
+    console.log('Payment cancelled:', response);
+    window.location.href = '/checkout/payment';
+  },
+  paymentMethod: 'CREDIT_CARD',
+  paymentSessionId: 'session-456'
 });
 ```
 
