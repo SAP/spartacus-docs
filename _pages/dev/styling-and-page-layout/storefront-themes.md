@@ -66,9 +66,9 @@ When the `applyBaseSiteThemeFromCms` feature toggle is enabled, the storefront's
 
 The active theme is resolved with the following precedence:
 
-1. A statically configured `context.theme`, which is provided with explicit developer intent, and is never overridden.
-1. If the `context.theme` is not statically configured, a theme that the user picks through the Theme Switcher is preserved (from `siteTheme.optionalThemes`, such as high-contrast).
-1. Otherwise, the `BaseSite.theme` value from the CMS is applied.
+- A statically configured `context.theme`, which is provided with explicit developer intent, and is never overridden.
+- If the `context.theme` is not statically configured, a theme that the user picks through the Theme Switcher is preserved (from `siteTheme.optionalThemes`, such as high-contrast).
+- Otherwise, the `BaseSite.theme` value from the CMS is applied.
 
 Once a theme name is resolved, the storefront's `ThemeService` applies it as a CSS class on the application's root element, reacting to changes without requiring a page reload.
 
