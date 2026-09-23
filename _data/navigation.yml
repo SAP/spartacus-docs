@@ -134,6 +134,17 @@ docs:
     - title: Storefront Development Guide
       url: /dev-guide/
       children:
+          - title: "Best practices ➢"
+            url: /best-practises/
+            subchildren:
+                - title: "Layout best practises➢"
+                  url: /layout-best-practices/
+                - title: "I18n best practises➢"
+                  url: /i18n-best-practices/
+                - title: "Structure best practises➢"
+                  url: /structure-best-practices/
+                - title: "Extending best practises➢"
+                  url: /extending-best-practices/
           - title: "Accessibility ➢"
             url: /a11y/
             subchildren:
