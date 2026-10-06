@@ -32,6 +32,20 @@ $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 ```
 
+### Update OAuth Client Credentials
+
+The new path for the oauth callback page needs to be set as an allowed Redirect URI in OAuthClientDetails.  This can be done through Backoffice > System > OAuth > OAuth Clients, and selecting the relevant entry.  Add the new Redirect URI to the multi-value field "OAuth registered redirect URI".  The URL pattern is "https:/<storefront_host>/<base_site>/oauth-callback" and, if you are not using the base site in the URL, you may omit that path segment.
+
+You may also use Impex to update or add the client credentials.  In this example, we are using client IDs with a base site suffix.  We have applied the appropriate Redirect URI according to the base site.
+```text
+# Public oAuth client credential.
+#  - Base site suffixed client IDs are for when URL context parameter is needed to determine base site
+INSERT_UPDATE OAuthClientDetails; clientId[unique=true]                     ;public ;authorities ;scope ;authorizedGrantTypes             ;registeredRedirectUri                                ;loginPageUri
+                                ; mobile_android_public_electronics-spa     ;true   ;ROLE_CLIENT ;basic ;authorization_code,refresh_token ;http://localhost:4200/electronics-spa/oauth-callback ;http://localhost:4200/electronics-spa/login
+                                ; mobile_android_public_powertools-spa      ;true   ;ROLE_CLIENT ;basic ;authorization_code,refresh_token ;http://localhost:4200/powertools-spa/oauth-callback  ;http://localhost:4200/powertools-spa/login
+                                ; mobile_android_public_apparel-uk-spa      ;true   ;ROLE_CLIENT ;basic ;authorization_code,refresh_token ;http://localhost:4200/apparel-uk-spa/oauth-callback  ;http://localhost:4200/apparel-uk-spa/login
+```
+
 ### CMS Page
 The oauth callback page is CMS-driven.  It consists of a content page with path `/oauth-callback` containing a single CMS component:
 - OAuthCallbackComponent
