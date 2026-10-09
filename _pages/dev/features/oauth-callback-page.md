@@ -88,6 +88,8 @@ INSERT_UPDATE ContentSlotForPage ;$contentCV[unique=true] ;uid[unique=true]     
 
 ## Customizing the OAuth Callback Page
 
+You can customize the OAuth callback page by changing its default path, as well as customizing which component and guards it uses.
+
 ### Custom Page Path
 
 To change the default path for the callback page, you adjust the path for the `oAuthCallback` page in the CMS, and set the new path in the Spartacus config.
