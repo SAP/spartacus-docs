@@ -32,9 +32,6 @@ that captures the Spartacus-specific rules an AI assistant should follow when
 generating or changing storefront code, such as back-end communication, CMS wiring,
 routing, configuration, state, i18n, styling, SSR, and more.
 
-**Note:** The agent skills are for building a custom Spartacus storefront (that is, the consumer
-codebases). They are not intended for developing the Spartacus framework itself.
-
 The agent skill is packaged as follows:
 
 ```text
@@ -47,10 +44,28 @@ skills/spartacus-developer/
 
 ## Installing the Agent Skill
 
-1. To install the Spartacus agent skill, run the following command:
+It is recommended to set up the agent skill through the standard Spartacus installation or update flow. The schematics install the `@spartacus/skills` development dependency and copy the skill into the project folders used by your chosen AI tools. However, it is also possible to add the skill to an existing project without running a full Spartacus installation or update. Both approaches are described in the following sections.
+
+### Recommended Agent Skill Installation
+
+Install Spartacus with the following command, and select the AI tool folders when prompted:
+
+```bash
+ng add @spartacus/schematics
+```
+
+The available folders are `.agents/skills/spartacus-developer/` and `.claude/skills/spartacus-developer/`. You can select one or both. The schematic installs the package and copies the skill for you, so no separate package installation or manual copying is required. To skip skill setup, leave both folders unselected.
+
+For an existing project, skill setup is also offered during the standard Spartacus update flow, as described in [Updating the Agent Skill](#updating-the-agent-skill).
+
+### Adding the Skill Without Running a Full Spartacus Installation or Update
+
+To add the skill to an existing project without running a full Spartacus installation or update, carry out the following steps.
+
+1. Install the skill package. Replace `<version>` with the version that matches the Spartacus libraries in your project.
 
    ```bash
-   npm install --save-dev @spartacus/skills
+   npm install --save-dev @spartacus/skills@<version>
    ```
 
 2. Copy the skill into your project.
@@ -75,20 +90,22 @@ skills/spartacus-developer/
       # Claude Code
       mkdir -p .claude/skills
       cp -r node_modules/@spartacus/skills/skills/spartacus-developer .claude/skills/
-      
+
       # Other agents (cross-tool location read by Codex, Gemini CLI, and others)
       mkdir -p .agents/skills
       cp -r node_modules/@spartacus/skills/skills/spartacus-developer .agents/skills/
       ```
 
-## Upgrading the Agent Skill
+## Updating the Agent Skill
 
-To keep your skill current with the latest updates, carry out the following steps.
+When updating Spartacus through the standard schematic flow, you are prompted to install or update the skill when you run the following command:
 
-1. Update the package by running the following command:
+```bash
+ng update @spartacus/schematics
+```
 
-   ```bash
-   npm update @spartacus/skills
-   ```
+Accept the prompt to install or update `@spartacus/skills` to a version aligned with the schematics and refresh the skill files. If the skill is already configured, the update reuses the existing tool folders and replaces their skill files. Otherwise, you are prompted to choose the folders to configure. You can decline the prompt to skip configuring or refreshing the skill files.
 
-2. Copy the agent skill into your project (as described in [Installing the Agent Skill](#installing-the-agent-skill), above) so that your project reflects the latest guidance.
+### Updating the Skill Without Schematics
+
+If you manage the package without schematics, install a version of `@spartacus/skills` that matches your Spartacus libraries and copy the updated skill into your project, as described in [Adding the Skill Without Running a Full Spartacus Installation or Update](#adding-the-skill-without-running-a-full-spartacus-installation-or-update). Replace the previously copied `spartacus-developer` folders before copying the updated skill so that files removed from the package are not retained. Updating the npm package alone does not refresh the copies used by your AI tools.
