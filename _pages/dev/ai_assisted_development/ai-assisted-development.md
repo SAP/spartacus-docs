@@ -44,11 +44,11 @@ skills/spartacus-developer/
 
 ## Installing the Agent Skill
 
-The recommended way to set up the agent skill is through the standard Spartacus installation or update flow. The schematics install the `@spartacus/skills` development dependency and copy the skill into the project folders used by your chosen AI tools.
+It is recommended to set up the agent skill through the standard Spartacus installation or update flow. The schematics install the `@spartacus/skills` development dependency and copy the skill into the project folders used by your chosen AI tools. However, it is also possible to add the skill to an existing project without running a full Spartacus installation or update. Both approaches are described in the following sections.
 
-### During Spartacus Installation
+### Recommended Agent Skill Installation
 
-When installing Spartacus with the following command, select the AI tool folders when prompted:
+Install Spartacus with the following command, and select the AI tool folders when prompted:
 
 ```bash
 ng add @spartacus/schematics
@@ -56,9 +56,9 @@ ng add @spartacus/schematics
 
 The available folders are `.agents/skills/spartacus-developer/` and `.claude/skills/spartacus-developer/`. You can select one or both. The schematic installs the package and copies the skill for you, so no separate package installation or manual copying is required. To skip skill setup, leave both folders unselected.
 
-For an existing project, skill setup is also offered during the standard Spartacus update flow, as described in [Upgrading the Agent Skill](#upgrading-the-agent-skill).
+For an existing project, skill setup is also offered during the standard Spartacus update flow, as described in [Updating the Agent Skill](#updating-the-agent-skill).
 
-### Alternative: Adding the Skill Independently
+### Adding the Skill Without Running a Full Spartacus Installation or Update
 
 To add the skill to an existing project without running a full Spartacus installation or update, carry out the following steps.
 
@@ -96,9 +96,9 @@ To add the skill to an existing project without running a full Spartacus install
       cp -r node_modules/@spartacus/skills/skills/spartacus-developer .agents/skills/
       ```
 
-## Upgrading the Agent Skill
+## Updating the Agent Skill
 
-When updating Spartacus through the standard schematic flow, you are prompted to install or update the skill:
+When updating Spartacus through the standard schematic flow, you are prompted to install or update the skill when you run the following command:
 
 ```bash
 ng update @spartacus/schematics
@@ -106,6 +106,6 @@ ng update @spartacus/schematics
 
 Accept the prompt to install or update `@spartacus/skills` to a version aligned with the schematics and refresh the skill files. If the skill is already configured, the update reuses the existing tool folders and replaces their skill files. Otherwise, you are prompted to choose the folders to configure. You can decline the prompt to skip configuring or refreshing the skill files.
 
-### Updating the Skill Independently
+### Updating the Skill Without Schematics
 
-If you manage the package separately, install a version of `@spartacus/skills` that matches your Spartacus libraries and copy the updated skill into your project, as described in [Alternative: Adding the Skill Independently](#alternative-adding-the-skill-independently). Replace the previously copied `spartacus-developer` folders before copying the updated skill so that files removed from the package are not retained. Updating the npm package alone does not refresh the copies used by your AI tools.
+If you manage the package without schematics, install a version of `@spartacus/skills` that matches your Spartacus libraries and copy the updated skill into your project, as described in [Adding the Skill Without Running a Full Spartacus Installation or Update](#adding-the-skill-without-running-a-full-spartacus-installation-or-update). Replace the previously copied `spartacus-developer` folders before copying the updated skill so that files removed from the package are not retained. Updating the npm package alone does not refresh the copies used by your AI tools.
