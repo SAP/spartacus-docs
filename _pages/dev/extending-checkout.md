@@ -9,7 +9,7 @@ The checkout feature in Spartacus is CMS-driven, which means every page in the c
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
 ***
 
@@ -392,7 +392,109 @@ provideConfig({
 }),
 ```
 
-**Note:** You can use this same approach to combine all the steps into a single-step checkout.
+**Note:** You can use this same approach to combine all the steps into a single-step checkout. However, please make sure to check our [Combining Checkout Steps Problems section](#Combining-Checkout-Steps-Problems).
+
+#### Combining Checkout Steps Problems
+
+There's a known limitation in the OCC API layer when trying to simulate the single-step checkout and execute multiple calls in parallel to set the shipping address, delivery mode and payment method: **insert link here**
+
+To mitigate this, it's recommended to execute the required calls _sequentially_ in Spartacus.
+
+This means you need to first call the Spartacus API that creates/sets the delivery address, and wait for it to complete before executing the call to set the delivery mode. The same goes for creating / setting the payment method - wait for the deliver mode call to complete before executing the next one. Only after all these calls finished successfully, you should perform the last step per your business requirements - either redirect to the order overview page, or go ahead and place the order immediately.
+
+**Note:** executing all the required steps sequentially will slow down the checkout, but it will mitigate any race conditions that might happen otherwise.
+
+Here are examples of how this can be achieved. First, we need to make sure that all the checkout steps _fire only once they have a result to emit_.
+This can be done using rxjs' `filter()` operator:
+
+```ts
+// pull the delivery address, and creates it if it doesn't exist
+address$ = this.checkoutDeliveryService.getDeliveryAddress().pipe(
+  tap((address: Address) => {
+    if (!Object.keys(address).length) {
+      this.checkoutDeliveryService.createAndSetAddress(newAddress);
+    }
+  }),
+  // make sure the address$ emits only when there's something to be emitted (i.e. when the address was created and set to the cart)
+  filter((address) => Object.keys(address).length !== 0)
+);
+
+// pulls the previously set delivery modes. If none is selected uses the configured preferred delivery mode
+deliveryMode$ = this.checkoutDeliveryService.getSupportedDeliveryModes().pipe(
+  filter((deliveryModes) => deliveryModes?.length !== 0),
+  withLatestFrom(
+    this.checkoutDeliveryService
+      .getSelectedDeliveryMode()
+      .pipe(map((selectedDeliveryMode) => selectedDeliveryMode?.code))
+  ),
+  map(([deliveryModes, code]) => {
+    // optionally, use the configured preferred delivery mode if none is selected
+    return code
+      ? code
+      : this.checkoutConfigService.getPreferredDeliveryMode(deliveryModes);
+  }),
+  tap((code) => {
+    if (code) {
+      this.checkoutDeliveryService.setDeliveryMode(code);
+    }
+  }),
+  // make sure there's delivery mode code selected before emitting
+  filter((code) => !!code)
+);
+
+// pulls the previously set payment method. If it doesn't exist, create one
+payment$ = this.checkoutPaymentService.getPaymentDetails().pipe(
+  tap((paymentInfo: PaymentDetails) => {
+    if (Object.keys(paymentInfo).length === 0) {
+      this.checkoutPaymentService.createPaymentDetails(newPaymentDetails);
+    }
+  }),
+  // make sure the payment$ emits only when there's something to be emitted (i.e. when the payment was created and set)
+  filter((paymentInfo) => Object.keys(paymentInfo).length !== 0)
+);
+```
+
+The above code is just an example of how the checkout steps could look like. Bear in mind it's not a production ready code - e.g. you might want to add some operators that will do some error handling in case there was an error somewhere in the process.
+
+The following examples show how the above streams can be combined into one process:
+
+```ts
+  // example #1
+  async promisesAndAsyncAwait(): Promise<void> {
+    // take(1) will make sure the stream completes, so that the promise can be resolved
+    await this.address$.pipe(take(1)).toPromise();
+    await this.deliveryMode$.pipe(take(1)).toPromise();
+    await this.payment$.pipe(take(1)).toPromise();
+
+    this.placeOrder();
+  }
+
+  // example #2
+  // uses observables, and waits for each of the steps to emit before proceeding to place the order
+  oneStream(): void {
+    const addressDeliveryMode$ = this.address$.pipe(
+      // take(1) makes sure that the stream completes so that concatAll can run the next stream (deliveryMode$) after address$
+      take(1),
+      map(() => this.deliveryMode$.pipe(take(1))),
+      // makes sure the address$ emits and completes before running deliveryMode$
+      concatAll(),
+    );
+
+    const addressDeliveryModePayment$ = addressDeliveryMode$.pipe(
+      map(() => this.payment$.pipe(take(1))),
+      // makes sure the addressDeliveryMode$ emitted and completed before running payment$
+      concatAll(),
+    );
+
+    const process$ = addressDeliveryModePayment$.pipe(
+       // runs after addressDeliveryModePayment$ completes
+      tap(() => this.placeOrder())
+    );
+
+    // not production ready - the subscription should be cleaned up
+    process$.subscribe();
+  }
+```
 
 ## Multiple Checkout Flows
 
