@@ -325,6 +325,120 @@ provideOutlet({
 }),
 ```
 
+### Customizing Post-Payment Behavior
+
+By default, open payment framework automatically places an order and navigates to the order confirmation page after a successful payment authorization. You can override this behavior — for example, in a pre-authorization flow where order fulfillment is handled by an external system and the customer should remain on the checkout page or be redirected to a custom destination.
+
+Two services trigger automatic order placement and must both be overridden:
+
+| Service | Trigger |
+| --- | --- |
+| `OpfPaymentHostedFieldsService` | Successful payment authorization via `submit` or `submitComplete` |
+| `OpfCheckoutPaymentWrapperService` | HTTP 409 CONFLICT when returning to checkout with an already-authorized session |
+
+Both services expose `protected` methods that you can override without duplicating internal open payment framework logic.
+
+To override `OpfPaymentHostedFieldsService`, extend the service and override `placeOrder` and `onPaymentSuccess`, as shown in the following example:
+
+```ts
+// src/app/spartacus/features/opf/custom-opf-payment-hosted-fields.service.ts
+
+import { Injectable } from '@angular/core';
+import { OpfPaymentHostedFieldsService } from '@spartacus/opf/payment/core';
+import { Order } from '@spartacus/order/root';
+import { EMPTY, Observable } from 'rxjs';
+
+@Injectable()
+export class CustomOpfPaymentHostedFieldsService extends OpfPaymentHostedFieldsService {
+
+  protected override placeOrder(_cartId?: string): Observable<Order> {
+    // this.routingService is available as a protected field from the base class.
+    this.routingService.goByUrl('/your-custom-path');
+    return EMPTY;
+  }
+
+  protected override onPaymentSuccess(_order: Order): void {
+    // No-op — navigation is handled in placeOrder above.
+  }
+}
+```
+
+To override `OpfCheckoutPaymentWrapperService`, extend the service and override `placeOrder`, `handlePaymentAlreadyDoneError`, and `onPlaceOrderSuccess`, as shown in the following example:
+
+```ts
+// src/app/spartacus/features/opf/custom-opf-checkout-payment-wrapper.service.ts
+
+import { Injectable } from '@angular/core';
+import { OpfCheckoutPaymentWrapperService } from '@spartacus/opf/checkout/components';
+import { Order } from '@spartacus/order/root';
+import { EMPTY, Observable, of } from 'rxjs';
+
+@Injectable()
+export class CustomOpfCheckoutPaymentWrapperService extends OpfCheckoutPaymentWrapperService {
+
+  protected override placeOrder(_cartId?: string): Observable<Order> {
+    return EMPTY;
+  }
+
+  protected override handlePaymentAlreadyDoneError(): Observable<Error> {
+    return of();
+  }
+
+  protected override onPlaceOrderSuccess(): void {}
+}
+```
+
+Because both services are provided inside lazy-loaded feature modules, overrides placed in the root injector have no effect. Instead, create wrapper modules that import the original lazy module and re-provide the custom service. Angular processes a module's own `providers` after its `imports`, so the custom provider wins. The following are examples of wrapper modules for each service:
+
+```ts
+// src/app/spartacus/features/opf/custom-opf-payment.module.ts
+
+import { NgModule } from '@angular/core';
+import { OpfPaymentModule } from '@spartacus/opf/payment';
+import { OpfPaymentHostedFieldsService } from '@spartacus/opf/payment/core';
+import { CustomOpfPaymentHostedFieldsService } from './custom-opf-payment-hosted-fields.service';
+
+@NgModule({
+  imports: [OpfPaymentModule],
+  providers: [
+    { provide: OpfPaymentHostedFieldsService, useClass: CustomOpfPaymentHostedFieldsService },
+  ],
+})
+export class CustomOpfPaymentModule {}
+```
+
+```ts
+// src/app/spartacus/features/opf/custom-opf-checkout.module.ts
+
+import { NgModule } from '@angular/core';
+import { OpfCheckoutModule } from '@spartacus/opf/checkout';
+import { OpfCheckoutPaymentWrapperService } from '@spartacus/opf/checkout/components';
+import { CustomOpfCheckoutPaymentWrapperService } from './custom-opf-checkout-payment-wrapper.service';
+
+@NgModule({
+  imports: [OpfCheckoutModule],
+  providers: [
+    { provide: OpfCheckoutPaymentWrapperService, useClass: CustomOpfCheckoutPaymentWrapperService },
+  ],
+})
+export class CustomOpfCheckoutModule {}
+```
+
+After creating the wrapper modules, update the `featureModules` entries in `opf-feature.module.ts` to point to your wrapper modules instead of the originals, as shown in the following example:
+
+```ts
+provideConfig(<CmsConfig>{
+  featureModules: {
+    [OPF_CHECKOUT_FEATURE]: {
+      module: () => import('./custom-opf-checkout.module').then((m) => m.CustomOpfCheckoutModule),
+    },
+    [OPF_PAYMENT_FEATURE]: {
+      module: () => import('./custom-opf-payment.module').then((m) => m.CustomOpfPaymentModule),
+    },
+  },
+}),
+```
+
 ## Configuring B2B Checkout
 
 B2B checkout in the open payment framework is disabled by default. When enabled, it overrides the existing B2C checkout configuration. To enable support for B2B checkout, you can install the feature using schematics, as follows:
