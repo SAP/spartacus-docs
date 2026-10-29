@@ -22,7 +22,7 @@ The following list describes the available callback parameters:
 
 - `submitSuccess` is called when a payment is successful.
 - `submitPending` is called when a payment is pending.
-- `submitFailure` is called when a payment fails.
+- `submitFailure` is called when a payment fails. The response includes the payment error response body fields, such as `message`, `type`, `details`, and `customFields`.
 - `submitCancel` is called when a payment is cancelled. This callback parameter is optional.
 
 ## Checkout Domain Functions
@@ -97,6 +97,7 @@ window.Opf.payments.checkout.submit({
   },
   submitFailure: (response) => {
     console.log('Payment failed:', response);
+    console.log('Custom fields:', response?.customFields);
   },
   submitCancel: (response) => {
     console.log('Payment cancelled:', response);
