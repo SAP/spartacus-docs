@@ -40,7 +40,6 @@ The following is a description of the various options you can use with the `ng a
 - `useMetaTags` determines whether or not to configure the `baseUrl` and `mediaUrl` in the meta tags from `index.html`.
 - `featureLevel` sets the application feature level. The default value is the same as the version of the Spartacus packages you are working with. For example, the `featureLevel` for `@spartacus/schematics@3.2.0` is `3.2`.
 - `overwriteAppComponent` overwrites the content of `app.component.html`. The default value is `true`.
-- `pwa` includes progressive web application (PWA) features when building the application.
 - `ssr` includes the server-side rendering (SSR) configuration.
 - `lazy` installs features with lazy loading configured for each of the feature modules. The default value is `true`.
 - `project` allows you to specify the project that you want to configure your Spartacus application in. The default is the workspace default project.
@@ -71,7 +70,6 @@ To see which features are included when you use the `--no-interactive` flag, see
 
 By default, the `ng add @spartacus/schematics` command adds only a basic configuration of Spartacus. The following is a description of the commands you can use to extend your application:
 
-- `ng g @spartacus/schematics:add-pwa` adds a Spartacus-specific PWA module.
 - `ng g @spartacus/schematics:add-ssr` adds the SSR configuration.
 - `ng g @spartacus/schematics:add-cms-component` generates a CMS component, and adds the CMS component mapping to the specified module, or to a newly-generated module, if no module is specified. For more information, see [CMS Component Schematic](#cms-component-schematic), below.
 
